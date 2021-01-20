@@ -1,0 +1,36 @@
+﻿@model Carousel
+
+@{ if (!String.IsNullOrWhiteSpace(ViewBag.Action))
+    {
+
+        <div class="row">
+            <form class="col-md-4" asp-action="@ViewBag.Action" method="post">
+                <div class="form-group">
+                    <label asp-for="@Model.ID"></label>
+                    <input asp-for="@Model.ID" class="form-control" placeholder="Enter ID">
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.DataTarget"></label>
+                    <input asp-for="@Model.DataTarget" class="form-control" placeholder="Enter DataTarget">
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.ImageSrc"></label>
+                    <input asp-for="@Model.ImageSrc" class="form-control" placeholder="Enter ImageSrc">
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.ImageAlt"></label>
+                    <input asp-for="@Model.ImageAlt" class="form-control" placeholder="Enter ImageAlt">
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.CarouselContent"></label>
+                    <input asp-for="@Model.CarouselContent" class="form-control" placeholder="Enter CarouselContent">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    }
+    else
+    {
+        <h2>Action is not set in viewbag for this partial view!</h2>
+    }
+}

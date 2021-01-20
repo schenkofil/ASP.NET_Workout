@@ -24,11 +24,33 @@ namespace eshop.Areas.Admin.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Create(Carousel carousel)
+        {
+            carousels.Add(carousel);
+            return RedirectToAction(nameof(Select));
+        }
 
         public IActionResult Edit(int id)
         {
             Carousel selectedCarousel = carousels.Where(x => x.ID == id).FirstOrDefault();
             if (selectedCarousel != null) return View(selectedCarousel);
+            else return NotFound();
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Carousel carousel)
+        {
+            Carousel selectedCarousel = carousels.Where(x => x.ID == carousel.ID).FirstOrDefault();
+            if (selectedCarousel != null) 
+            {
+                selectedCarousel.DataTarget = carousel.DataTarget;
+                selectedCarousel.ImageSrc = carousel.ImageSrc;
+                selectedCarousel.ImageAlt = carousel.ImageAlt;
+                selectedCarousel.CarouselContent = carousel.CarouselContent;
+
+                return RedirectToAction(nameof(Select));
+            }
             else return NotFound();
         }
 

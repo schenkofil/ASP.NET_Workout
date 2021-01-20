@@ -9,10 +9,12 @@ namespace eshop.Models.DatabaseFake
     public static class DatabaseFake
     {
         public static IList<Carousel> Carousels { get; set; }
+        public static IList<Product> Products { get; set; }
 
         static DatabaseFake()
         {
             Carousels = CarouselHelper.GenerateCarousel();
+            Products = ProductHelper.GenerateProduct();
         }
     }
 }

@@ -1,0 +1,27 @@
+﻿@model Product
+
+<div class="row">
+    <form class="col-md-4" asp-action="@ViewBag.Action" method="post">
+        <div class="form-group">
+            <label asp-for="@Model.ID"></label>
+            <input asp-for="@Model.ID" class="form-control" placeholder="Enter ID">
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Name"></label>
+            <input asp-for="@Model.Name" class="form-control" placeholder="Enter Name">
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Price"></label>
+            <input asp-for="@Model.Price" class="form-control" placeholder="Enter Price">
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Weight"></label>
+            <input asp-for="@Model.Weight" class="form-control" placeholder="Enter Weight">
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Color"></label>
+            <input asp-for="@Model.Color" class="form-control" placeholder="Enter Color">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
