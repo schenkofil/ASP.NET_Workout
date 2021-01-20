@@ -35,24 +35,8 @@ namespace eshop.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Carousel carousel)
         {
-            carousel.ImageSrc = String.Empty;
-            var img = carousel.Image;
-
-            if(img != null && img.ContentType.ToLower().Contains("image") && img.Length > 0 && img.Length < 2_000_000)
-            {
-                string fileNameWithExtension = (Path.GetFileNameWithoutExtension(img.FileName) + Path.GetExtension(img.FileName));
-                //TODO: osetrit prepsani stejnojmenneho souboru
-                //var filinameGenerated = Path.GetRandomFileName();
-
-                var filePathRelative = Path.Combine("image", "Carousels", fileNameWithExtension);
-                var filePath = Path.Combine(env.WebRootPath, "images", "Carousels", fileNameWithExtension);
-
-                using (var stream = new FileStream(filePath, FileMode.Create))
-                {
-                    await img.CopyToAsync(stream);
-                }
-                carousel.ImageSrc = $"/{filePathRelative}";
-            }
+            var fuh = new FileUploadHelper(env);
+            await fuh.UploadFileAsync(carousel);
 
             carousels.Add(carousel);
             return RedirectToAction(nameof(Select));
@@ -66,15 +50,19 @@ namespace eshop.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(Carousel carousel)
+        public async Task<IActionResult> Edit(Carousel carousel)
         {
             Carousel selectedCarousel = carousels.Where(x => x.ID == carousel.ID).FirstOrDefault();
             if (selectedCarousel != null) 
             {
                 selectedCarousel.DataTarget = carousel.DataTarget;
-                selectedCarousel.ImageSrc = carousel.ImageSrc;
                 selectedCarousel.ImageAlt = carousel.ImageAlt;
                 selectedCarousel.CarouselContent = carousel.CarouselContent;
+
+                var fuh = new FileUploadHelper(env);
+                await fuh.UploadFileAsync(carousel);
+
+                selectedCarousel.ImageSrc = await fuh.UploadFileAsync(carousel) ? carousel.ImageSrc : String.Empty;
 
                 return RedirectToAction(nameof(Select));
             }
