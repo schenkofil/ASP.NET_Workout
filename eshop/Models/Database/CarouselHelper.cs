@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace eshop.Models.DatabaseFake
+namespace eshop.Models.Database
 {
     public class CarouselHelper
     {
@@ -15,7 +15,6 @@ namespace eshop.Models.DatabaseFake
             {
                 new Carousel()
                     {
-                    ID = 1,
                     DataTarget = "#myCarousel",
                     ImageSrc="/images/banner1.svg",
                     ImageAlt="ASP.NET",
@@ -25,7 +24,6 @@ namespace eshop.Models.DatabaseFake
 
                  new Carousel()
                     {
-                    ID = 2,
                     DataTarget = "#myCarousel",
                     ImageSrc="/images/banner2.svg",
                     ImageAlt="Visual Studio",
@@ -34,7 +32,6 @@ namespace eshop.Models.DatabaseFake
 
                   new Carousel()
                     {
-                    ID = 3,
                     DataTarget = "#myCarousel",
                     ImageSrc="/images/banner3.svg",
                     ImageAlt="Microsoft Azure",
@@ -43,7 +40,6 @@ namespace eshop.Models.DatabaseFake
 
                    new Carousel()
                     {
-                    ID = 4,
                     DataTarget = "#myCarousel",
                     ImageSrc="/images/banner3.svg",
                     ImageAlt="Microsoft Azure",

@@ -1,7 +1,9 @@
 ﻿using eshop.Models;
+using eshop.Models.Database;
 using eshop.Models.DatabaseFake;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,18 +15,19 @@ namespace eshop.Areas.Admin.Controllers
     [Area("Admin")]
     public class CarouselController : Controller
     {
-        IList<Carousel> carousels = DatabaseFake.Carousels;
         IHostingEnvironment env;
+        EshopDBContext EshopDBContext;
 
-        public CarouselController(IHostingEnvironment env)
+        public CarouselController(EshopDBContext eshopDBContext, IHostingEnvironment env)
         {
+            this.EshopDBContext = eshopDBContext;
             this.env = env;
         }
 
-        public IActionResult Select()
+        public async Task<IActionResult> Select()
         {
             CarouselViewModel carousel = new CarouselViewModel();
-            carousel.Carousels = carousels;
+            carousel.Carousels = await EshopDBContext.Carousels.ToListAsync();
             return View(carousel);
         }
 
@@ -38,13 +41,14 @@ namespace eshop.Areas.Admin.Controllers
             var fuh = new FileUploadHelper(env);
             await fuh.UploadFileAsync(carousel);
 
-            carousels.Add(carousel);
+            EshopDBContext.Add(carousel);
+            await EshopDBContext.SaveChangesAsync();
             return RedirectToAction(nameof(Select));
         }
 
         public IActionResult Edit(int id)
         {
-            Carousel selectedCarousel = carousels.Where(x => x.ID == id).FirstOrDefault();
+            Carousel selectedCarousel = EshopDBContext.Carousels.Where(x => x.ID == id).FirstOrDefault();
             if (selectedCarousel != null) return View(selectedCarousel);
             else return NotFound();
         }
@@ -52,7 +56,7 @@ namespace eshop.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(Carousel carousel)
         {
-            Carousel selectedCarousel = carousels.Where(x => x.ID == carousel.ID).FirstOrDefault();
+            Carousel selectedCarousel = EshopDBContext.Carousels.Where(x => x.ID == carousel.ID).FirstOrDefault();
             if (selectedCarousel != null) 
             {
                 selectedCarousel.DataTarget = carousel.DataTarget;
@@ -64,17 +68,20 @@ namespace eshop.Areas.Admin.Controllers
 
                 selectedCarousel.ImageSrc = await fuh.UploadFileAsync(carousel) ? carousel.ImageSrc : String.Empty;
 
+                await EshopDBContext.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Select));
             }
             else return NotFound();
         }
 
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            Carousel selectedCarousel = carousels.Where(x => x.ID == id).FirstOrDefault();
+            Carousel selectedCarousel = EshopDBContext.Carousels.Where(x => x.ID == id).FirstOrDefault();
             if (selectedCarousel != null)
             {
-                carousels.Remove(selectedCarousel);
+                EshopDBContext.Carousels.Remove(selectedCarousel);
+                await EshopDBContext.SaveChangesAsync();
                 return RedirectToAction(nameof(Select));
             }
             else return NotFound();

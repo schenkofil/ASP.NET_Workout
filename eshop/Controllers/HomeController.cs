@@ -1,6 +1,8 @@
 ﻿using eshop.Models;
+using eshop.Models.Database;
 using eshop.Models.DatabaseFake;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,11 +13,15 @@ namespace eshop.Controllers
 {
     public class HomeController : Controller
     {
-        IList<Carousel> carousels = DatabaseFake.Carousels;
-        public IActionResult Index()
+        readonly EshopDBContext EshopDBContext;
+        public HomeController(EshopDBContext eshopDBContext)
+        {
+            this.EshopDBContext = eshopDBContext;
+        }
+        public async Task<IActionResult> Index()
         {
             CarouselViewModel carousel = new CarouselViewModel();
-            carousel.Carousels = carousels;
+            carousel.Carousels = await EshopDBContext.Carousels.ToListAsync();
             return View(carousel);
         }
 

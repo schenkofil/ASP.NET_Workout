@@ -13,7 +13,7 @@ namespace eshop.Models.DatabaseFake
 
         static DatabaseFake()
         {
-            Carousels = CarouselHelper.GenerateCarousel();
+            //Carousels = CarouselHelper.GenerateCarousel();
             Products = ProductHelper.GenerateProduct();
         }
     }
