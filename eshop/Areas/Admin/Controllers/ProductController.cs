@@ -2,6 +2,7 @@
 using eshop.Models.Database;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,8 +22,9 @@ namespace eshop.Areas.Admin.Controllers
             this.EshopDBContext = dBContext;
         }
 
-        public IActionResult Select()
+        public async Task<IActionResult> Select()
         {
+            var products = await EshopDBContext.Products.ToListAsync();
             return View(products);
         }
 
@@ -31,9 +33,13 @@ namespace eshop.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(Product product)
+        public async Task<IActionResult> Create(Product product)
         {
-            products.Add(product);
+            var fuh = new FileUploadHelper(Env);
+            await fuh.UploadFileAsync(product);
+
+            EshopDBContext.Add(product);
+            await EshopDBContext.SaveChangesAsync();
             return RedirectToAction(nameof(Select));
         }
 
