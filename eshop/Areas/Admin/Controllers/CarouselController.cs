@@ -1,6 +1,5 @@
 ﻿using eshop.Models;
 using eshop.Models.Database;
-using eshop.Models.DatabaseFake;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

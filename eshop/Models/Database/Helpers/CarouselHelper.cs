@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace eshop.Models.Database
+namespace eshop.Models.Database.Helpers
 {
     public class CarouselHelper
     {

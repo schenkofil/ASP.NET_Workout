@@ -1,5 +1,6 @@
 ﻿using eshop.Models;
-using eshop.Models.DatabaseFake;
+using eshop.Models.Database;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,14 @@ namespace eshop.Areas.Admin.Controllers
     [Area("Admin")]
     public class ProductController : Controller
     {
-        IList<Product> products = DatabaseFake.Products;
+        IHostingEnvironment Env;
+        EshopDBContext EshopDBContext;
+
+        public ProductController(IHostingEnvironment env, EshopDBContext dBContext)
+        {
+            this.Env = env;
+            this.EshopDBContext = dBContext;
+        }
 
         public IActionResult Select()
         {
