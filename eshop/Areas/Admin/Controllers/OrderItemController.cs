@@ -7,10 +7,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using eshop.Models;
 using eshop.Models.Database;
+using Microsoft.AspNetCore.Authorization;
+using eshop.Models.Identity;
 
 namespace eshop.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = nameof(Roles.Admin))]
     public class OrderItemController : Controller
     {
         private readonly EshopDBContext _context;

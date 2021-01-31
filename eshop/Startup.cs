@@ -80,6 +80,8 @@ namespace eshop
                 app.UseHsts();
             }
 
+            app.UseStatusCodePagesWithReExecute("Home/ErrorCodeStatus", "?statusCode ={o}");
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();

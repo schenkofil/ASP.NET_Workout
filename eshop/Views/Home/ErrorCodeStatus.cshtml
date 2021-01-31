@@ -1,0 +1,16 @@
+﻿@model ErrorCodeStatusViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger">Status code error.</h1>
+
+@if (Model != null)
+{
+<p>
+    <strong>Status code:</strong> <code>@Model.StatusCode</code>
+    <strong>Original URL:</strong> <code>@Model.OriginalURL</code>
+    <img id="errorImage" src="https://image.picscut.com/png-svg/20200803/ourlarge/picscut-error-and-effort-minimal-art-word-svg-png-image_1060.jpg" alt="Stack Overflow logo and icons and such">
+</p>
+}
+
