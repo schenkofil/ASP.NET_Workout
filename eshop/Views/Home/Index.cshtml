@@ -6,7 +6,14 @@
 
 @section Styles
 {
-    <link rel="stylesheet" href="/css/styles.css" />
+    <environment include="Development">
+        <link rel="stylesheet" href="/css/styles.css" />
+        <link rel="stylesheet" href="/css/shop-template.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="/css/styles.css" />
+        <link rel="stylesheet" href="/css/shop-template.css" />
+    </environment>
 }
 
 @{
@@ -58,42 +65,43 @@
         </div>
     }
 }
-<div class="row">
-    <div class="col-md-3">
-        <h2>Application uses</h2>
-        <ul>
-            <li>Sample pages using ASP.NET Core MVC</li>
-            <li>Theming using <a href="https://go.microsoft.com/fwlink/?LinkID=398939">Bootstrap</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
-        <h2>How to</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398600">Add a Controller and View</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699315">Manage User Secrets using Secret Manager.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699316">Use logging to log a message.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Add packages using NuGet.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699319">Target development, staging or production environment.</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
-        <h2>Overview</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=518008">Conceptual overview of what is ASP.NET Core</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699320">Fundamentals of ASP.NET Core such as Startup and middleware.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398602">Working with Data</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398603">Security</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699321">Client side development</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699322">Develop on different platforms</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699323">Read more on the documentation site</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
-        <h2>Run &amp; Deploy</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517851">Run your app</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517853">Run tools such as EF migrations and more</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
-        </ul>
+<div class="container">
+    <div class="row">
+        <div class="">
+            <div class="row">
+                <div class="">
+                    <h1 class="my-4 text-center">Products</h1>
+                    <div class="list-group col-md-offset-4 col-md-4 text-center">
+                        <a href="#" class="list-group-item col-md-4">Cat. 1</a>
+                        <a href="#" class="list-group-item col-md-4">Cat. 2</a>
+                        <a href="#" class="list-group-item col-md-4">Cat. 3</a>
+                        <a href="#" class="list-group-item col-md-4">Cat. 4</a>
+                        <a href="#" class="list-group-item col-md-4">Cat. 5</a>
+                        <a href="#" class="list-group-item col-md-4">Cat. 6</a>
+                        <a href="#" class="list-group-item col-md-4">Cat. 7</a>
+                        <a href="#" class="list-group-item col-md-4">Cat. 8</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-lg-4 com-md-6 mb-4">
+                    <div class="card h-100">
+                        <a asp-area="" asp-controller="Products" asp-action="Detail"><img class="card-img-top img-responsive" src="http://placehold.it/700x400" alt="" /></a>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <a asp-area="" asp-controller="Products" asp-action="Detail">Item One</a>
+                            </h4>
+                            <h5>$25.88</h5>
+                            <p class="card-text">Lorem asdghflas fasdgf askdfgasl dgfasdf</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">&#9733;&#9733;&#9733;&#9733;&#9733;</small>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>

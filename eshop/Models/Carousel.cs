@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using eshop.Models.Validation;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,12 +10,8 @@ using System.Threading.Tasks;
 namespace eshop.Models
 {
     [Table("Carousel")]
-    public class Carousel
+    public class Carousel : Entity
     {
-        [Key]
-        [Required]
-        public int ID { get; set; }
-
         [Required]
         public string DataTarget { get; set; }
 
@@ -23,6 +20,7 @@ namespace eshop.Models
         public string ImageSrc { get; set; }
 
         [NotMapped]
+        [ContentType("image")]
         public IFormFile Image { get; set; }
 
         [Required]

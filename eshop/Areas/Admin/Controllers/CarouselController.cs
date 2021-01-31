@@ -34,15 +34,23 @@ namespace eshop.Areas.Admin.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> Create(Carousel carousel)
         {
-            var fuh = new FileUploadHelper(env);
-            await fuh.UploadFileAsync(carousel);
+            if (ModelState.IsValid)
+            {
+                var fuh = new FileUploadHelper(env.WebRootPath, "Carousels", "image");
+                carousel.ImageSrc = await fuh.UploadFileAsync(carousel.Image);
 
-            EshopDBContext.Add(carousel);
-            await EshopDBContext.SaveChangesAsync();
-            return RedirectToAction(nameof(Select));
+                EshopDBContext.Add(carousel);
+                await EshopDBContext.SaveChangesAsync();
+                return RedirectToAction(nameof(Select));
+            }
+            else
+            {
+                return View(carousel);
+            }
         }
 
         public IActionResult Edit(int id)
@@ -56,22 +64,24 @@ namespace eshop.Areas.Admin.Controllers
         public async Task<IActionResult> Edit(Carousel carousel)
         {
             Carousel selectedCarousel = EshopDBContext.Carousels.Where(x => x.ID == carousel.ID).FirstOrDefault();
-            if (selectedCarousel != null) 
+            if (ModelState.IsValid) 
             {
                 selectedCarousel.DataTarget = carousel.DataTarget;
                 selectedCarousel.ImageAlt = carousel.ImageAlt;
                 selectedCarousel.CarouselContent = carousel.CarouselContent;
 
-                var fuh = new FileUploadHelper(env);
-                await fuh.UploadFileAsync(carousel);
+                var fuh = new FileUploadHelper(env.WebRootPath, "Carousels", "image");
 
-                selectedCarousel.ImageSrc = await fuh.UploadFileAsync(carousel) ? carousel.ImageSrc : String.Empty;
+                if(!String.IsNullOrWhiteSpace(carousel.ImageSrc = await fuh.UploadFileAsync(carousel.Image)))
+                {
+                    selectedCarousel.ImageSrc = carousel.ImageSrc;
+                }
 
                 await EshopDBContext.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Select));
             }
-            else return NotFound();
+            else return View(carousel);
         }
 
         public async Task<IActionResult> Delete(int id)

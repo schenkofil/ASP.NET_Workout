@@ -8,12 +8,8 @@ using System.Threading.Tasks;
 
 namespace eshop.Models
 {
-    public class Product
+    public class Product : Entity
     {
-        [Key]
-        [Required]
-        public int ID { get; set; }
-
         [Required]
         [StringLength(255)]
         public string Name { get; set; }
@@ -23,6 +19,10 @@ namespace eshop.Models
 
         [NotMapped]
         public IFormFile Image { get; set; }
+
+        [Required]
+        [StringLength(255)]
+        public string ImageSrc { get; set; }
 
         [Required]
         public double Weight { get; set; }

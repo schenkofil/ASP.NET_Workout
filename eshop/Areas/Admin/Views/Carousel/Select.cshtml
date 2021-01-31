@@ -17,7 +17,7 @@
             <th class="col-sm-2">@Html.DisplayNameFor(model => model.Carousels[0].DataTarget)</th>
             <th class="col-sm-2">@Html.DisplayNameFor(model => model.Carousels[0].ImageSrc)</th>
             <th class="col-sm-2">@Html.DisplayNameFor(model => model.Carousels[0].ImageAlt)</th>
-            <th class="col-sm-5">@Html.DisplayNameFor(model => model.Carousels[0].CarouselContent)</th>
+            <th class="col-sm-3">@Html.DisplayNameFor(model => model.Carousels[0].CarouselContent)</th>
             <th class="col-sm-1">Edit</th>
             <th class="col-sm-1">Delete</th>
         </tr>
@@ -28,7 +28,7 @@
                     <td class="col-sm-2">@p.DataTarget</td>
                     <td class="col-sm-2">@p.ImageSrc</td>
                     <td class="col-sm-2">@p.ImageAlt</td>
-                    <td class="col-sm-5">@p.CarouselContent.</td>
+                    <td class="col-sm-3">@p.CarouselContent.</td>
                     <th class="col-sm-1"><a asp-action="Edit" asp-route-ID="@p.ID">Edit</a></th>
                     <th class="col-sm-1"><a asp-action="Delete" asp-route-ID="@p.ID" onclick="return ConfirmDlete();">Delete</a></th>
                 </tr>

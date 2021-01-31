@@ -8,3 +8,9 @@
 @{ViewBag.Action = "Edit";}
 
 <partial name="_Form" model="Model">
+
+    @section Scripts {
+
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        <script src="~/js/Validation/ContentTypeValidation.js"></script>
+    }

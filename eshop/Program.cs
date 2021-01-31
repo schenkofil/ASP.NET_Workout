@@ -24,6 +24,9 @@ namespace eshop
                 var dbContext = serviceProvider.GetRequiredService<EshopDBContext>();
                 DbInitializer.Initialize(dbContext);
             }
+
+            DbInitializer.EnsureRoleCreated(webHost.Services);
+            DbInitializer.EnsureAdminCreated(webHost.Services);
             webHost.Run();
         }
 

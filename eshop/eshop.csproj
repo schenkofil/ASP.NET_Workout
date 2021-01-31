@@ -25,6 +25,8 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Security\Data\" />
+    <Folder Include="Areas\Security\Models\" />
     <Folder Include="wwwroot\images\Carousels\" />
     <Folder Include="wwwroot\images\Products\" />
   </ItemGroup>

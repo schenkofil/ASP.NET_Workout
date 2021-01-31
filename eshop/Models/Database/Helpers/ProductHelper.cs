@@ -17,6 +17,7 @@ namespace eshop.Models.Database.Helpers
                     ID = 1,
                     Name = "PC",
                     Price = 999,
+                    ImageSrc = String.Empty,
                     Weight = 13.8,
                     Color = "Red"
                     },
@@ -27,6 +28,7 @@ namespace eshop.Models.Database.Helpers
                     ID = 2,
                     Name = "TV box",
                     Price = 5000,
+                    ImageSrc = String.Empty,
                     Weight = 12.5,
                     Color = "Blue"
                     },
@@ -36,6 +38,7 @@ namespace eshop.Models.Database.Helpers
                     ID = 3,
                     Name = "Dunno",
                     Price = 25000,
+                    ImageSrc = String.Empty,
                     Weight = 3.68,
                     Color = "Yellow"
                     },
@@ -45,6 +48,7 @@ namespace eshop.Models.Database.Helpers
                     ID = 4,
                     Name = "#myCarousel",
                     Price = 2489,
+                    ImageSrc = String.Empty,
                     Weight = 2.5,
                     Color = "Brown"
                     },

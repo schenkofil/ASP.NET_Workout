@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,38 +10,49 @@ namespace eshop.Models
 {
     public class FileUploadHelper
     {
-        IHostingEnvironment env;
+        string RootPath;
+        string ContentType;
+        string DirName;
 
-        public FileUploadHelper(IHostingEnvironment env)
+        public FileUploadHelper(string rootPath, string dirName, string contentType)
         {
-            this.env = env;
+            this.RootPath = rootPath;
+            this.DirName = dirName;
+            this.ContentType = contentType;
         }
-        public async Task<bool> UploadFileAsync(Carousel carousel)
-        {
-            bool uploadSuccess = false;
-            var img = carousel.Image;
-            
-            carousel.ImageSrc = String.Empty;
 
-            if (img != null && img.ContentType.ToLower().Contains("image") && img.Length > 0 && img.Length < 2_000_000)
+        public bool ContentCheck(IFormFile iFormFile)
+        {
+            return iFormFile != null && iFormFile.ContentType.ToLower().Contains(ContentType);
+        }
+
+        public bool LenghtCheck(IFormFile iFormFile)
+        {
+            return iFormFile.Length > 0 && iFormFile.Length < 2_000_000;
+        }
+
+        public async Task<string> UploadFileAsync(IFormFile file)
+        {
+            string uploadedFilePath = String.Empty;
+
+            if (ContentCheck(file) && LenghtCheck(file))
             {
-                string fileNameWithExtension = (Path.GetFileNameWithoutExtension(img.FileName) + Path.GetExtension(img.FileName));
+                string fileNameWithExtension = (Path.GetFileNameWithoutExtension(file.FileName) + Path.GetExtension(file.FileName));
                 //TODO: osetrit prepsani stejnojmenneho souboru
                 //var filinameGenerated = Path.GetRandomFileName();
 
-                var filePathRelative = Path.Combine("images", "Carousels", fileNameWithExtension);
-                var filePath = Path.Combine(env.WebRootPath, "images", "Carousels", fileNameWithExtension);
+                var filePathRelative = Path.Combine(ContentType + "s", DirName, fileNameWithExtension);
+                var filePath = Path.Combine(RootPath, filePathRelative);
 
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
-                    await img.CopyToAsync(stream);
+                    await file.CopyToAsync(stream);
                 }
-                carousel.ImageSrc = $"\\{filePathRelative}";
+                uploadedFilePath = $"\\{filePathRelative}";
 
-                uploadSuccess = true;
             }
 
-            return uploadSuccess;
+            return uploadedFilePath;
         }
     }
 }
