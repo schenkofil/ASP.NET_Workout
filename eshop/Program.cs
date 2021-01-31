@@ -32,6 +32,17 @@ namespace eshop
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+                .UseStartup<Startup>()
+                .ConfigureLogging((hostingContext, logging) =>
+                {
+                    logging.ClearProviders();
+                    logging.AddConsole();
+                    logging.AddEventSourceLogger();
+                    logging.AddEventLog(new Microsoft.Extensions.Logging.EventLog.EventLogSettings()
+                    {
+                        SourceName = "UTB.eshop",
+                        LogName = "Application"
+                    });
+                });
     }
 }

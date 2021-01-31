@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="@Model.CarouselContent"></label>
-                    <input asp-for="@Model.CarouselContent" class="form-control" placeholder="Enter CarouselContent">
+                    <textarea asp-for="@Model.CarouselContent" class="form-control" placeholder="Enter CarouselContent"></textarea>
                     <span asp-validation-for="@Model.CarouselContent" class="text-danger"></span>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
