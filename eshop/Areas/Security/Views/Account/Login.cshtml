@@ -1,7 +1,44 @@
-﻿@{ 
+﻿@model LoginViewModel
+@{
     ViewData["Title"] = "Login";
 }
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
 
-<p>login</p>
+<div class="container">
+    <div class="col-md-offset-4 col-md-4">
+        <article class="card-body mx-auto">
+            <form asp-action="Login" mathod="post">
+                <div class="row form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                    </div>
+                    <input asp-for="@Model.Username" class="form-control" placeholder="Full name" type="text">
+                </div> <!-- form-group// -->
+                <div class="row form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                    </div>
+                    <input asp-for="@Model.Password" class="form-control" placeholder="Password" type="password">
+                </div> <!-- form-group// -->
+                <div class="row form-group">
+                    <input id="checkbox" asp-for="@Model.RememberMe" type="checkbox" />
+                    <label for="checkbox">Remember me</label>
+                </div>
+                <div class="row-no-gutters form-group">
+                    <button type="submit" class="btn btn-primary btn-block"> Log In  </button>
+                </div> <!-- form-group// -->
+            </form>
+            <p>
+                <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
+                <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
+            </p>
+            <p class="text-center">
+                Don't have an account yet?
+                <a asp-area="Security" asp-controller="Account" asp-action="Register">
+                    Register
+                </a>
+            </p>
+        </article>
+    </div>
+</div>

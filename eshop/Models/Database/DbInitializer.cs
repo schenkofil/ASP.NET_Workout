@@ -56,6 +56,8 @@ namespace eshop.Models.Database
         {
             using (var services = serviceProvider.CreateScope())
             {
+
+                //admin
                 var userManager = services.ServiceProvider.GetRequiredService<UserManager<User>>();
                 var admin = new User()
                 {
@@ -65,7 +67,7 @@ namespace eshop.Models.Database
                     LastName = "Schenk",
                     EmailConfirmed = true
                 };
-                var password = "admin";
+                var password = "Srandicka#1";
 
                 var adminInDb = await userManager.FindByNameAsync(admin.UserName);
 
@@ -91,6 +93,42 @@ namespace eshop.Models.Database
                     }
                 }
 
+                //manager
+                var manager = new User()
+                {
+                    UserName = "manager",
+                    Email = "manager_f_schenk@utb.cz",
+                    FirstName = "Filip",
+                    LastName = "Schenk",
+                    EmailConfirmed = true
+                };
+
+                var managerInDb = await userManager.FindByNameAsync(manager.UserName);
+
+                if (managerInDb == null)
+                {
+                    IdentityResult iResult = await userManager.CreateAsync(manager, password);
+
+                    if (iResult.Succeeded)
+                    {
+
+                        string[] roles = Enum.GetNames(typeof(Roles));
+                        foreach (var p in roles)
+                        {
+                            if(p != Roles.Admin.ToString())
+                            {
+                                await userManager.AddToRoleAsync(manager, p);
+                            }
+                        }
+                    }
+                    else if (iResult.Errors != null && iResult.Errors.Count() > 0)
+                    {
+                        foreach (var er in iResult.Errors)
+                        {
+                            Debug.WriteLine($"Error during role creation: {er.Code} => {er.Description}");
+                        }
+                    }
+                }
             }
         }
     }

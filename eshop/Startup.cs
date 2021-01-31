@@ -1,4 +1,5 @@
-﻿using eshop.Models.Database;
+﻿using eshop.Models.ApplicationServices;
+using eshop.Models.Database;
 using eshop.Models.Identity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -39,12 +40,12 @@ namespace eshop
             services.AddIdentity<User, Role>().AddEntityFrameworkStores<EshopDBContext>().AddDefaultTokenProviders();
             services.Configure<IdentityOptions>(options =>
             {
-                options.Password.RequireDigit = false;
-                options.Password.RequiredLength = 3;
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireUppercase = false;
+                options.Password.RequireDigit = true;
+                options.Password.RequiredLength = 8;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
                 options.Password.RequireLowercase = true;
-                options.Password.RequiredUniqueChars = 3;
+                options.Password.RequiredUniqueChars = 6;
 
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
                 options.Lockout.MaxFailedAccessAttempts = 10;
@@ -60,6 +61,8 @@ namespace eshop
                 options.LogoutPath = "/Security/Account/Logout";
                 options.SlidingExpiration = true;
             });
+
+            services.AddScoped<ISecurityApplicationService, SecurityApplicationService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

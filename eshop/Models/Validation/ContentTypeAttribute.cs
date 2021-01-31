@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace eshop.Models.Validation
 {
+    [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter, AllowMultiple = false)]
     public class ContentTypeAttribute : ValidationAttribute, IClientModelValidator
     {
         private readonly string contentType;
