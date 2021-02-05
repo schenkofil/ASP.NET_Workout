@@ -10,7 +10,7 @@ namespace eshop.Models.ApplicationServices
 {
     public class SecurityApplicationService : ISecurityApplicationService
     {
-        UserManager<User> userManager;
+        UserManager<User> userManager;//todo -private
         SignInManager<User> signInManager;
 
         public SecurityApplicationService(UserManager<User> userManager, SignInManager<User> signInManager)
@@ -61,7 +61,7 @@ namespace eshop.Models.ApplicationServices
                 LastName = vm.LastName,
                 Email = vm.Email,
                 PhoneNumber = vm.PhoneNumber
-            };
+            };//Todo - mapper
 
             string[] errors = null;
             var result = await userManager.CreateAsync(user, vm.Password);
