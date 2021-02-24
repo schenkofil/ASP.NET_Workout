@@ -1,6 +1,9 @@
-﻿using eshop.Models;
+﻿using eshop.Areas.Admin.Models;
+using eshop.Models;
 using eshop.Models.Database;
+using eshop.ViewModels;
 using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -14,18 +17,23 @@ namespace eshop.Controllers
 {
     public class HomeController : Controller
     {
-        readonly EshopDBContext EshopDBContext;
-        readonly ILogger<HomeController> Logger;
+        readonly EshopDBContext _eshopDBContext;
+        readonly ILogger<HomeController> _logger;
         public HomeController(EshopDBContext eshopDBContext, ILogger<HomeController> logger)
         {
-            this.EshopDBContext = eshopDBContext;
-            this.Logger = logger;
+            _eshopDBContext = eshopDBContext;
+            _logger = logger;
         }
         public async Task<IActionResult> Index()
         {
-            CarouselViewModel carousel = new CarouselViewModel();
-            carousel.Carousels = await EshopDBContext.Carousels.ToListAsync();
-            return View(carousel);
+            var hvm = new HomeViewModel()
+            {
+                Carousels = await _eshopDBContext.Carousels.ToListAsync(),
+                Products = await _eshopDBContext.Products.ToListAsync(),
+                Categories = await _eshopDBContext.ProductCategories.ToListAsync()
+            };
+
+            return View(hvm);
         }
 
         public IActionResult About()
@@ -52,7 +60,7 @@ namespace eshop.Controllers
         {
             var featureException = HttpContext.Features.Get<IExceptionHandlerPathFeature>();
             
-            this.Logger.LogWarning("Error occured: " + featureException.Error.ToString() + Environment.NewLine + "Exception Path: " + featureException.Path);
+            _logger.LogWarning("Error occured: " + featureException.Error.ToString() + Environment.NewLine + "Exception Path: " + featureException.Path);
 
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
@@ -68,7 +76,7 @@ namespace eshop.Controllers
             }
 
             var statCode = code.HasValue ? code.Value : 0;
-            this.Logger.LogWarning("StatusCode: " + statCode + "Original URL:");
+            _logger.LogWarning("StatusCode: " + statCode + "Original URL:");
 
             if(code.HasValue && code.Value == 404)
             {
@@ -85,6 +93,24 @@ namespace eshop.Controllers
                 OriginalURL = originalURL
             };
             return View(vm);
+        }
+
+        public async Task<IActionResult> FilterByCategory(int id)
+        {
+            var hvm = new HomeViewModel()
+            {
+                Carousels = await _eshopDBContext.Carousels.ToListAsync(),
+                Products = await _eshopDBContext.Products.Where(x => x.ProductCategoryID == id).ToListAsync(),
+                Categories = await _eshopDBContext.ProductCategories.ToListAsync()
+            };
+
+            return View(nameof(Index), hvm);
+        }
+
+        public IActionResult Detail(int id)
+        {
+            var selectedProduct = _eshopDBContext.Products.FirstOrDefault(x => x.ID == id);
+            return View("~/Views/Products/Detail.cshtml", selectedProduct);
         }
     }
 }

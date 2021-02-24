@@ -1,4 +1,5 @@
-﻿@model List<Product>
+﻿@using eshop.Areas.Admin.Models;
+@model List<Product>
 
 @{
     ViewData["Title"] = "Product Select";
@@ -18,8 +19,6 @@
                 <th class="col-sm-1">@Html.DisplayNameFor(model => model.FirstOrDefault().ID)</th>
                 <th class="col-sm-2">@Html.DisplayNameFor(model => model.FirstOrDefault().Name)</th>
                 <th class="col-sm-2">@Html.DisplayNameFor(model => model.FirstOrDefault().Price)</th>
-                <th class="col-sm-2">@Html.DisplayNameFor(model => model.FirstOrDefault().Weight)</th>
-                <th class="col-sm-5">@Html.DisplayNameFor(model => model.FirstOrDefault().Color)</th>
                 <th class="col-sm-1">Edit</th>
                 <th class="col-sm-1">Delete</th>
             </tr>
@@ -29,8 +28,6 @@
                         <td class="col-sm-1">@p.ID</td>
                         <td class="col-sm-2">@p.Name</td>
                         <td class="col-sm-2">@p.Price</td>
-                        <td class="col-sm-2">@p.Weight</td>
-                        <td class="col-sm-5">@p.Color</td>
                         <th class="col-sm-1"><a asp-action="Edit" asp-route-ID="@p.ID">Edit</a></th>
                         <th class="col-sm-1"><a asp-action="Delete" asp-route-ID="@p.ID" onclick="return ConfirmDlete();">Delete</a></th>
                     </tr>

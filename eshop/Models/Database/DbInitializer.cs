@@ -1,4 +1,5 @@
-﻿using eshop.Models.Database.Helpers;
+﻿using eshop.Areas.Admin.Models;
+using eshop.Models.Database.Helpers;
 using eshop.Models.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,6 +17,16 @@ namespace eshop.Models.Database
         {
             dBContext.Database.EnsureCreated();
 
+            if(dBContext.ProductCategories.Count() == 0)
+            {
+                IList<ProductCategory> categories = CategoryHelper.GenerateCategories();
+                foreach(var p in categories)
+                {
+                    dBContext.ProductCategories.Add(p);
+                }
+                dBContext.SaveChanges();
+            }
+
             if (dBContext.Carousels.Count() == 0)
             {
                 IList<Carousel> carousels = CarouselHelper.GenerateCarousel();
@@ -28,13 +39,14 @@ namespace eshop.Models.Database
 
             if (dBContext.Products.Count() == 0)
             {
-                IList<Product> products = ProductHelper.GenerateProduct();
+                IList<Product> products = ProductHelper.GenerateProduct(dBContext.ProductCategories.ToList());
                 foreach (var p in products)
                 {
                     dBContext.Products.Add(p);
                 }
                 dBContext.SaveChanges();
             }
+
         }
 
         public async static void EnsureRoleCreated(IServiceProvider serviceProvider)

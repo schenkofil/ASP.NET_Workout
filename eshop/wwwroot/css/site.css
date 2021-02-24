@@ -16,6 +16,7 @@ body {
 .carousel-caption p {
     font-size: 20px;
     line-height: 1.4;
+    color: grey;
 }
 
 /* Make .svg files in the carousel display properly in older browsers */
@@ -23,8 +24,13 @@ body {
     width: 100%;
 }
 
-/* QR code generator */
-#qrCode {
+.carousel-inner .item img {
+    height: 300px;
+    overflow: hidden;
+}
+
+    /* QR code generator */
+    #qrCode {
     margin: 15px;
 }
 

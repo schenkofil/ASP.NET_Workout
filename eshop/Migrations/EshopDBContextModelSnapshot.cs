@@ -19,7 +19,7 @@ namespace eshop.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("eshop.Models.Carousel", b =>
+            modelBuilder.Entity("eshop.Areas.Admin.Models.Carousel", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -47,6 +47,48 @@ namespace eshop.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Carousel");
+                });
+
+            modelBuilder.Entity("eshop.Areas.Admin.Models.Product", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateTimeCreated")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<string>("ImageSrc")
+                        .IsRequired()
+                        .HasMaxLength(255);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(255);
+
+                    b.Property<int>("Price");
+
+                    b.Property<int>("ProductCategoryID");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("eshop.Areas.Admin.Models.ProductCategory", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(255);
+
+                    b.HasKey("ID");
+
+                    b.ToTable("ProductCategories");
                 });
 
             modelBuilder.Entity("eshop.Models.Identity.Role", b =>
@@ -144,7 +186,13 @@ namespace eshop.Migrations
                         .IsRequired()
                         .HasMaxLength(25);
 
+                    b.Property<int>("TotalPrice");
+
+                    b.Property<int>("UserId");
+
                     b.HasKey("ID");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Order");
                 });
@@ -163,7 +211,7 @@ namespace eshop.Migrations
 
                     b.Property<int>("OrderID");
 
-                    b.Property<double>("Price");
+                    b.Property<int>("Price");
 
                     b.Property<int>("ProductID");
 
@@ -174,36 +222,6 @@ namespace eshop.Migrations
                     b.HasIndex("ProductID");
 
                     b.ToTable("OrderItem");
-                });
-
-            modelBuilder.Entity("eshop.Models.Product", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Color")
-                        .IsRequired();
-
-                    b.Property<DateTime>("DateTimeCreated")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasDefaultValueSql("GETDATE()");
-
-                    b.Property<string>("ImageSrc")
-                        .IsRequired()
-                        .HasMaxLength(255);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(255);
-
-                    b.Property<int>("Price");
-
-                    b.Property<double>("Weight");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -289,6 +307,14 @@ namespace eshop.Migrations
                     b.ToTable("UserTokens");
                 });
 
+            modelBuilder.Entity("eshop.Models.Order", b =>
+                {
+                    b.HasOne("eshop.Models.Identity.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("eshop.Models.OrderItem", b =>
                 {
                     b.HasOne("eshop.Models.Order", "Order")
@@ -296,7 +322,7 @@ namespace eshop.Migrations
                         .HasForeignKey("OrderID")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("eshop.Models.Product", "Product")
+                    b.HasOne("eshop.Areas.Admin.Models.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductID")
                         .OnDelete(DeleteBehavior.Cascade);

@@ -1,4 +1,5 @@
-﻿@model CarouselViewModel
+﻿@using eshop.ViewModels;
+@model HomeViewModel
 
 @{
     ViewData["Title"] = "Home Page";
@@ -19,7 +20,7 @@
 @{
     if (Model != null && Model.Carousels != null && Model.Carousels.Count > 0)
     {
-        <div id="@Model.Carousels[0].DataTarget.Substring(1, Model.Carousels[0].DataTarget.Length-1)" class="carousel slide" data-ride="carousel" data-interval="6000">
+        <div id="@Model.Carousels[0].DataTarget.Substring(1, Model.Carousels[0].DataTarget.Length - 1)" class="carousel slide" data-ride="carousel" data-interval="6000">
             <ol class="carousel-indicators">
                 @{
                     for (int i = 0; i < Model.Carousels.Count; i++)
@@ -72,36 +73,40 @@
                 <div class="">
                     <h1 class="my-4 text-center">Products</h1>
                     <div class="list-group col-md-offset-4 col-md-4 text-center">
-                        <a href="#" class="list-group-item col-md-4">Cat. 1</a>
-                        <a href="#" class="list-group-item col-md-4">Cat. 2</a>
-                        <a href="#" class="list-group-item col-md-4">Cat. 3</a>
-                        <a href="#" class="list-group-item col-md-4">Cat. 4</a>
-                        <a href="#" class="list-group-item col-md-4">Cat. 5</a>
-                        <a href="#" class="list-group-item col-md-4">Cat. 6</a>
-                        <a href="#" class="list-group-item col-md-4">Cat. 7</a>
-                        <a href="#" class="list-group-item col-md-4">Cat. 8</a>
+                        @foreach (var p in Model.Categories)
+                        {
+                            <a asp-area="" asp-action="FilterByCategory" asp-route-ID="@p.ID" class="list-group-item col-md-4">@p.Name</a>
+                        }
+                        <label>Pri koupi 5 a vice stejnych vyrobku ziskavete slevu 500,- na kazdy z nich! (modul cenovych hladin)</label>
                     </div>
                 </div>
             </div>
             <div class="row">
 
-                <div class="col-lg-4 com-md-6 mb-4">
-                    <div class="card h-100">
-                        <a asp-area="" asp-controller="Products" asp-action="Detail"><img class="card-img-top img-responsive" src="http://placehold.it/700x400" alt="" /></a>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a asp-area="" asp-controller="Products" asp-action="Detail">Item One</a>
-                            </h4>
-                            <h5>$25.88</h5>
-                            <p class="card-text">Lorem asdghflas fasdgf askdfgasl dgfasdf</p>
+                @{ foreach (var p in Model.Products)
+                    {
+                        <div class="col-lg-3 com-md-4 mb-4">
+                            <div class="card" style="height: 450px; text-align:center;">
+                                <a asp-controller="Home" asp-action="Detail" asp-route-ID="@p.ID"><img class="card-img-top img-responsive" src="@p.ImageSrc" alt="" /></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a asp-area="" asp-controller="Home" asp-action="Detail" asp-route-ID="@p.ID">@p.Name</a>
+                                    </h4>
+                                    <h5>@p.Price</h5>
+                                    <input type="button" class="btn-success" value="Buy" style="font-size:1.5em"
+                                           onclick="Buy(@p.ID,'@Url.Action("AddOrderItemsToSession", "CustomerOrderNotCart", new { Area = "Customer" })', '#total_price', '@System.Globalization.CultureInfo.CurrentCulture.Name')" />
+                                    <p class="card-text">Lorem asdghflas fasdgf askdfgasl dgfasdf</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-footer">
-                            <small class="text-muted">&#9733;&#9733;&#9733;&#9733;&#9733;</small>
-                        </div>
-                    </div>
-                </div>
+                    }
+                }
 
             </div>
         </div>
     </div>
 </div>
+
+@section Scripts {
+        <script src="~/js/Product.js"></script>
+}

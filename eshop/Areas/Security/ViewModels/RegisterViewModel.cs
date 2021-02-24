@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace eshop.Models
+namespace eshop.Areas.Security.ViewModels
 {
     public class RegisterViewModel
     {
@@ -24,6 +24,7 @@ namespace eshop.Models
         public string PhoneNumber { get; set; }
 
         [Required]
+        [MinLength(8)]
         [UniqueCharacters(6)]
         [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$", ErrorMessage = ErrorMessagePassword)]
         public string Password { get; set;}

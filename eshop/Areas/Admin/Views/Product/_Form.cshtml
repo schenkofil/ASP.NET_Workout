@@ -1,4 +1,5 @@
-﻿@using eshop.Areas.Admin.Controllers; 
+﻿@using eshop.Areas.Admin.Controllers;
+@using eshop.Areas.Admin.Models;
 @model Product
 
 <div class="row">
@@ -12,18 +13,12 @@
         <div class="form-group">
             <label asp-for="@Model.Name"></label>
             <input asp-for="@Model.Name" class="form-control" placeholder="Enter Name">
+            <span asp-validation-for="@Model.Name" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="@Model.Price"></label>
             <input asp-for="@Model.Price" class="form-control" placeholder="Enter Price">
-        </div>
-        <div class="form-group">
-            <label asp-for="@Model.Weight"></label>
-            <input asp-for="@Model.Weight" class="form-control" placeholder="Enter Weight">
-        </div>
-        <div class="form-group">
-            <label asp-for="@Model.Color"></label>
-            <input asp-for="@Model.Color" class="form-control" placeholder="Enter Color">
+            <span asp-validation-for="@Model.Price" class="text-danger"></span>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

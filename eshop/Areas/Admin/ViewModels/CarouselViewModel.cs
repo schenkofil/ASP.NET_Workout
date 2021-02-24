@@ -1,9 +1,10 @@
-﻿using System;
+﻿using eshop.Areas.Admin.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace eshop.Models
+namespace eshop.Areas.Admin.ViewModels
 {
     public class CarouselViewModel
     {

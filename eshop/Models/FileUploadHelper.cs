@@ -16,9 +16,9 @@ namespace eshop.Models
 
         public FileUploadHelper(string rootPath, string dirName, string contentType)
         {
-            this.RootPath = rootPath;
-            this.DirName = dirName;
-            this.ContentType = contentType;
+            RootPath = rootPath;
+            DirName = dirName;
+            ContentType = contentType;
         }
 
         public bool ContentCheck(IFormFile iFormFile)

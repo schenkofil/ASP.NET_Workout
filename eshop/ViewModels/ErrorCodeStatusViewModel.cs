@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace eshop.Models
+namespace eshop.ViewModels
 {
-    public class _404ViewModel
+    public class ErrorCodeStatusViewModel
     {
         public string OriginalURL { get; set; }
         public int StatusCode { get; set; }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eshop.Areas.Admin.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -16,7 +17,7 @@ namespace eshop.Models
         [ForeignKey(nameof(Product))]
         public int ProductID { get; set; }
         public int Amount { get; set; }
-        public double Price { get; set; }
+        public int Price { get; set; }
 
         public Order Order { get; set; }
         public Product Product { get; set; }

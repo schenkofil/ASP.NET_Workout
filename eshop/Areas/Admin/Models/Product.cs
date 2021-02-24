@@ -7,17 +7,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace eshop.Models
+namespace eshop.Areas.Admin.Models
 {
-    [Table("Carousel")]
-    public class Carousel : Entity
+    public class Product : Entity
     {
         [Required]
-        public string DataTarget { get; set; }
+        [StringLength(255)]
+        public string Name { get; set; }
 
         [Required]
-        [StringLength(255)]
-        public string ImageSrc { get; set; }
+        public int Price { get; set; }
 
         [NotMapped]
         [ContentType("image")]
@@ -25,10 +24,10 @@ namespace eshop.Models
 
         [Required]
         [StringLength(255)]
-        public string ImageAlt { get; set; }
+        public string ImageSrc { get; set; }
 
         [Required]
-        [StringLength(255)]
-        public string CarouselContent { get; set; }
+        [ForeignKey(nameof(ProductCategory))]
+        public int ProductCategoryID { get; set; }
     }
 }

@@ -1,6 +1,8 @@
-﻿using eshop.Models.ApplicationServices;
+﻿using AutoMapper;
+using eshop.Models.ApplicationServices;
 using eshop.Models.Database;
 using eshop.Models.Identity;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -10,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,8 +39,13 @@ namespace eshop
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<EshopDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MSSQL_LOCAL_CONNECTION")));
-            services.AddIdentity<User, Role>().AddEntityFrameworkStores<EshopDBContext>().AddDefaultTokenProviders();
+            services.AddDbContext<EshopDBContext>(options => 
+                options.UseSqlServer(Configuration.GetConnectionString("MSSQL_LOCAL_CONNECTION")));
+
+            services.AddIdentity<User, Role>()
+                .AddEntityFrameworkStores<EshopDBContext>()
+                .AddDefaultTokenProviders();
+
             services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequireDigit = true;
@@ -53,6 +61,7 @@ namespace eshop
 
                 options.User.RequireUniqueEmail = true;
             });
+
             services.ConfigureApplicationCookie(options =>
             {
                 options.Cookie.HttpOnly = true;
@@ -64,12 +73,32 @@ namespace eshop
 
             services.AddScoped<ISecurityApplicationService, SecurityApplicationService>();
 
+            services.AddAuthentication()
+                .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddFacebook(facebookOptions =>
+                {
+                facebookOptions.AppId = "816658309192980";
+                facebookOptions.AppSecret = "04333d7537a07bd3b7fefe4ee77d1f7a";
+                });
+
+            services.AddAutoMapper();
+
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(15);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            loggerFactory.AddFile("Logs/myapp-{Date}.txt");
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -80,13 +109,14 @@ namespace eshop
                 app.UseHsts();
             }
 
-            app.UseStatusCodePagesWithReExecute("/Home/ErrorCodeStatus", "?statusCode={0}");
+            app.UseStatusCodePagesWithReExecute("/Home/ErrorCodeStatus", "?code={0}");
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
             app.UseAuthentication();
+            app.UseSession();
 
             app.UseMvc(routes =>
             {

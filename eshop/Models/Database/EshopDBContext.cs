@@ -1,4 +1,5 @@
-﻿using eshop.Models.Database.Config;
+﻿using eshop.Areas.Admin.Models;
+using eshop.Models.Database.Config;
 using eshop.Models.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +17,8 @@ namespace eshop.Models.Database
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
 
+        public DbSet<ProductCategory> ProductCategories { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -24,6 +27,7 @@ namespace eshop.Models.Database
             modelBuilder.ApplyConfiguration(new OrderConfig());
             modelBuilder.ApplyConfiguration(new OrderItemConfig());
             modelBuilder.ApplyConfiguration(new ProductConfig());
+            modelBuilder.ApplyConfiguration(new ProductCategoryConfig());
 
             foreach(var e in modelBuilder.Model.GetEntityTypes())
             {

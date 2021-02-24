@@ -1,10 +1,12 @@
-﻿@model Product
+﻿@using eshop.Areas.Admin.Models;
+@model Product
 
 @{
     ViewData["Title"] = "Product Edit";
-    ViewBag.Action = "Edit";
 }
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
+
+@{ViewBag.Action = "Edit";}
 
 <partial name="_Form" model="Model" />

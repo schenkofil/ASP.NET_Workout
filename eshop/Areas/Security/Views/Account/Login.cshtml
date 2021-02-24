@@ -1,4 +1,5 @@
-﻿@model LoginViewModel
+﻿@using eshop.Areas.Security.ViewModels
+@model LoginViewModel
 @{
     ViewData["Title"] = "Login";
 }
@@ -29,10 +30,21 @@
                     <button type="submit" class="btn btn-primary btn-block"> Log In  </button>
                 </div> <!-- form-group// -->
             </form>
-            <p>
-                <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
-                <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
-            </p>
+            <p class="text-center"><span style="font-weight: bold">OR</span></p><br />
+            <form asp-action="ExternalLogin" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
+                <div>
+                    <p>
+                        <button type="submit"
+                                class="btn btn-primary btn-block btn-facebook"
+                                name="provider"
+                                value="Facebook"
+                                title="Log in using your Facebook account"
+                                >
+                                Use Facebook to log in
+                        </button>
+                    </p>
+                </div>
+            </form>
             <p class="text-center">
                 Don't have an account yet?
                 <a asp-area="Security" asp-controller="Account" asp-action="Register">

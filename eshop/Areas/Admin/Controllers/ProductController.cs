@@ -1,8 +1,12 @@
-﻿using eshop.Models;
+﻿using eshop.Areas.Admin.Models;
+using eshop.Models;
 using eshop.Models.Database;
+using eshop.Models.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,20 +15,23 @@ using System.Threading.Tasks;
 namespace eshop.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    //[Authorize(Roles = nameof(Roles.Admin) + ", " + nameof(Roles.Manager))]
     public class ProductController : Controller
     {
-        IHostingEnvironment Env;
-        EshopDBContext EshopDBContext;
+        private readonly IHostingEnvironment _env;
+        private readonly EshopDBContext _eshopDBContext;
+        //readonly ILogger<ProductController> _log;
 
         public ProductController(IHostingEnvironment env, EshopDBContext dBContext)
         {
-            this.Env = env;
-            this.EshopDBContext = dBContext;
+            _env = env;
+            _eshopDBContext = dBContext;
         }
 
         public async Task<IActionResult> Select()
         {
-            var products = await EshopDBContext.Products.ToListAsync();
+            //_log.LogInformation("Producs selection now!");
+            var products = await _eshopDBContext.Products.ToListAsync();
             return View(products);
         }
 
@@ -35,36 +42,51 @@ namespace eshop.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Product product)
         {
-            var fuh = new FileUploadHelper(Env.WebRootPath, "Products", "image");
+            var fuh = new FileUploadHelper(_env.WebRootPath, "Products", "image");
             await fuh.UploadFileAsync(product.Image);
 
-            EshopDBContext.Add(product);
-            await EshopDBContext.SaveChangesAsync();
+            _eshopDBContext.Add(product);
+            await _eshopDBContext.SaveChangesAsync();
             return RedirectToAction(nameof(Select));
         }
 
-        [HttpPost]
-        public IActionResult Edit(Product product)
+        public IActionResult Edit(int id)
         {
-            if (product != null)
-            {
-                product.Name = product.Name;
-                product.Price = product.Price;
-                product.Weight = product.Weight;
-                product.Color = product.Color;
+            Product selectedProduct = _eshopDBContext.Products.FirstOrDefault(x => x.ID == id);
+            if (selectedProduct != null) return View(selectedProduct);
+            else return NotFound();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(Product product)
+        {
+            Product selectedProduct = _eshopDBContext.Products.FirstOrDefault(x => x.ID == product.ID);
+            //if (ModelState.IsValid)
+            //{
+                selectedProduct.Name = product.Name;
+                selectedProduct.Price = product.Price;
+
+                //var fuh = new FileUploadHelper(env.WebRootPath, "Products", "image");
+
+                //if (!String.IsNullOrWhiteSpace(carousel.ImageSrc = await fuh.UploadFileAsync(carousel.Image)))
+                //{
+                //    selectedCarousel.ImageSrc = carousel.ImageSrc;
+                //}
+
+                await _eshopDBContext.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Select));
-            }
-            else return NotFound();
+            //}
+            //else return View(product);
         }
 
         public async Task<IActionResult> Delete(int id)
         {
-            Product selectedProduct = EshopDBContext.Products.Where(x => x.ID == id).FirstOrDefault();
+            Product selectedProduct = _eshopDBContext.Products.FirstOrDefault(x => x.ID == id);
             if (selectedProduct != null)
             {
-                EshopDBContext.Products.Remove(selectedProduct);
-                await EshopDBContext.SaveChangesAsync();
+                _eshopDBContext.Products.Remove(selectedProduct);
+                await _eshopDBContext.SaveChangesAsync();
                 return RedirectToAction(nameof(Select));
             }
             else return NotFound();

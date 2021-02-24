@@ -1,0 +1,380 @@
+2021-02-16T12:26:40.8290109+01:00 0HM6IDMT1OCI9:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:61297/  0 (ca22a1cb)
+2021-02-16T12:26:40.8290097+01:00 0HM6IDMT1OCIA:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44369/   (ca22a1cb)
+2021-02-16T12:26:42.2759379+01:00 0HM6IDMT1OCI9:00000001 [INF] Request finished in 1191.2074ms 200  (791a596a)
+2021-02-16T12:26:49.5834540+01:00 0HM6IDMT1OCIA:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index()" on controller "eshop.Controllers.HomeController" ("eshop"). (122b2fdf)
+2021-02-16T12:26:49.7942379+01:00 0HM6IDMT1OCIA:00000001 [INF] Executing action method "eshop.Controllers.HomeController.Index (eshop)" - Validation state: Valid (dad538d7)
+2021-02-16T12:26:49.8263220+01:00 0HM6IDMT1OCIA:00000001 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"EshopDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-02-16T12:26:50.1270574+01:00 0HM6IDMT1OCIA:00000001 [INF] Executed DbCommand ("232"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[ID], [c].[CarouselContent], [c].[DataTarget], [c].[DateTimeCreated], [c].[ImageAlt], [c].[ImageSrc]
+FROM [Carousel] AS [c]" (0723d8ff)
+2021-02-16T12:26:51.2806302+01:00 0HM6IDMT1OCIA:00000001 [INF] Executed DbCommand ("149"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[ID], [p].[Color], [p].[DateTimeCreated], [p].[ImageSrc], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Products] AS [p]" (0723d8ff)
+2021-02-16T12:26:51.5142087+01:00 0HM6IDMT1OCIA:00000001 [INF] Executed action method "eshop.Controllers.HomeController.Index (eshop)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 1686.8056ms. (50a9e262)
+2021-02-16T12:26:52.2584073+01:00 0HM6IDMT1OCIA:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-02-16T12:26:54.1659712+01:00 0HM6IDMT1OCIA:00000001 [INF] Executed ViewResult - view "Index" executed in 2460.8973ms. (f66409e9)
+2021-02-16T12:26:54.1957901+01:00 0HM6IDMT1OCIA:00000001 [INF] Executed action "eshop.Controllers.HomeController.Index (eshop)" in 4596.3798ms (afa2e885)
+2021-02-16T12:26:54.3125302+01:00 0HM6IDMT1OCIA:00000001 [INF] Request finished in 13570.2959ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-16T12:27:06.5263288+01:00 0HM6IDMT1OCI9:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44369/Security/Account/Login   (ca22a1cb)
+2021-02-16T12:27:06.5439666+01:00 0HM6IDMT1OCI9:00000002 [INF] Route matched with "{area = \"Security\", action = \"Login\", controller = \"Account\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Login()" on controller "eshop.Areas.Security.Controllers.AccountController" ("eshop"). (122b2fdf)
+2021-02-16T12:27:06.5751947+01:00 0HM6IDMT1OCI9:00000002 [INF] Executing action method "eshop.Areas.Security.Controllers.AccountController.Login (eshop)" - Validation state: Valid (dad538d7)
+2021-02-16T12:27:06.5765581+01:00 0HM6IDMT1OCI9:00000002 [INF] Executed action method "eshop.Areas.Security.Controllers.AccountController.Login (eshop)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.7688ms. (50a9e262)
+2021-02-16T12:27:06.8550099+01:00 0HM6IDMT1OCI9:00000002 [INF] Executing ViewResult, running view "Login". (c83d0e25)
+2021-02-16T12:27:07.2407480+01:00 0HM6IDMT1OCI9:00000002 [INF] Executed ViewResult - view "Login" executed in 663.1982ms. (f66409e9)
+2021-02-16T12:27:07.2413143+01:00 0HM6IDMT1OCI9:00000002 [INF] Executed action "eshop.Areas.Security.Controllers.AccountController.Login (eshop)" in 696.861ms (afa2e885)
+2021-02-16T12:27:07.2420271+01:00 0HM6IDMT1OCI9:00000002 [INF] Request finished in 716.3631ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-16T12:27:19.8681207+01:00 0HM6IDMT1OCIA:00000002 [INF] Request starting HTTP/1.1 POST http://localhost:44369/Security/Account/Login application/x-www-form-urlencoded 237 (ca22a1cb)
+2021-02-16T12:27:19.9578213+01:00 0HM6IDMT1OCIA:00000002 [INF] Route matched with "{area = \"Security\", action = \"Login\", controller = \"Account\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(eshop.Models.LoginViewModel)" on controller "eshop.Areas.Security.Controllers.AccountController" ("eshop"). (122b2fdf)
+2021-02-16T12:27:20.1854316+01:00 0HM6IDMT1OCIA:00000002 [INF] Executing action method "eshop.Areas.Security.Controllers.AccountController.Login (eshop)" - Validation state: Valid (dad538d7)
+2021-02-16T12:27:20.1999162+01:00 0HM6IDMT1OCIA:00000002 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"EshopDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-02-16T12:27:20.2574581+01:00 0HM6IDMT1OCIA:00000002 [INF] Executed DbCommand ("51"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2021-02-16T12:27:21.0078320+01:00 0HM6IDMT1OCIA:00000002 [INF] Executed DbCommand ("29"ms) [Parameters=["@__user_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [UserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2021-02-16T12:27:21.2612354+01:00 0HM6IDMT1OCIA:00000002 [INF] Executed DbCommand ("6"ms) [Parameters=["@__userId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [UserRoles] AS [userRole]
+INNER JOIN [Roles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2021-02-16T12:27:21.3080145+01:00 0HM6IDMT1OCIA:00000002 [INF] Executed DbCommand ("18"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2021-02-16T12:27:21.4128746+01:00 0HM6IDMT1OCIA:00000002 [INF] Executed DbCommand ("32"ms) [Parameters=["@__role_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [RoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2021-02-16T12:27:21.4528324+01:00 0HM6IDMT1OCIA:00000002 [INF] Executed DbCommand ("28"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2021-02-16T12:27:21.4737599+01:00 0HM6IDMT1OCIA:00000002 [INF] Executed DbCommand ("17"ms) [Parameters=["@__role_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [RoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2021-02-16T12:27:21.4997034+01:00 0HM6IDMT1OCIA:00000002 [INF] Executed DbCommand ("15"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2021-02-16T12:27:21.5555260+01:00 0HM6IDMT1OCIA:00000002 [INF] Executed DbCommand ("54"ms) [Parameters=["@__role_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [RoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2021-02-16T12:27:21.6468143+01:00 0HM6IDMT1OCIA:00000002 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2021-02-16T12:27:21.6692566+01:00 0HM6IDMT1OCIA:00000002 [INF] Executed action method "eshop.Areas.Security.Controllers.AccountController.Login (eshop)", returned result "Microsoft.AspNetCore.Mvc.RedirectToActionResult" in 1483.0272ms. (50a9e262)
+2021-02-16T12:27:21.6872934+01:00 0HM6IDMT1OCIA:00000002 [INF] Executing RedirectResult, redirecting to "/". (d98d540e)
+2021-02-16T12:27:21.6892867+01:00 0HM6IDMT1OCIA:00000002 [INF] Executed action "eshop.Areas.Security.Controllers.AccountController.Login (eshop)" in 1730.375ms (afa2e885)
+2021-02-16T12:27:21.6901897+01:00 0HM6IDMT1OCIA:00000002 [INF] Request finished in 1827.0946ms 302  (791a596a)
+2021-02-16T12:27:21.7917080+01:00 0HM6IDMT1OCI9:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44369/   (ca22a1cb)
+2021-02-16T12:27:21.8542893+01:00 0HM6IDMT1OCI9:00000003 [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index()" on controller "eshop.Controllers.HomeController" ("eshop"). (122b2fdf)
+2021-02-16T12:27:21.8557264+01:00 0HM6IDMT1OCI9:00000003 [INF] Executing action method "eshop.Controllers.HomeController.Index (eshop)" - Validation state: Valid (dad538d7)
+2021-02-16T12:27:21.8570262+01:00 0HM6IDMT1OCI9:00000003 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"EshopDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-02-16T12:27:21.8859143+01:00 0HM6IDMT1OCI9:00000003 [INF] Executed DbCommand ("17"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[ID], [c].[CarouselContent], [c].[DataTarget], [c].[DateTimeCreated], [c].[ImageAlt], [c].[ImageSrc]
+FROM [Carousel] AS [c]" (0723d8ff)
+2021-02-16T12:27:21.9400656+01:00 0HM6IDMT1OCI9:00000003 [INF] Executed DbCommand ("52"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[ID], [p].[Color], [p].[DateTimeCreated], [p].[ImageSrc], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Products] AS [p]" (0723d8ff)
+2021-02-16T12:27:21.9417483+01:00 0HM6IDMT1OCI9:00000003 [INF] Executed action method "eshop.Controllers.HomeController.Index (eshop)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 85.2662ms. (50a9e262)
+2021-02-16T12:27:21.9488769+01:00 0HM6IDMT1OCI9:00000003 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-02-16T12:27:21.9685824+01:00 0HM6IDMT1OCI9:00000003 [INF] Executed ViewResult - view "Index" executed in 20.5248ms. (f66409e9)
+2021-02-16T12:27:21.9693869+01:00 0HM6IDMT1OCI9:00000003 [INF] Executed action "eshop.Controllers.HomeController.Index (eshop)" in 114.377ms (afa2e885)
+2021-02-16T12:27:21.9701535+01:00 0HM6IDMT1OCI9:00000003 [INF] Request finished in 178.4577ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-16T12:27:29.3353978+01:00 0HM6IDMT1OCIA:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44369/Products/Detail   (ca22a1cb)
+2021-02-16T12:27:29.3618980+01:00 0HM6IDMT1OCIA:00000003 [INF] Route matched with "{action = \"ErrorCodeStatus\", controller = \"Home\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult ErrorCodeStatus(System.Nullable`1[System.Int32])" on controller "eshop.Controllers.HomeController" ("eshop"). (122b2fdf)
+2021-02-16T12:27:29.3651048+01:00 0HM6IDMT1OCIA:00000003 [INF] Executing action method "eshop.Controllers.HomeController.ErrorCodeStatus (eshop)" - Validation state: Valid (dad538d7)
+2021-02-16T12:27:29.3886787+01:00 0HM6IDMT1OCIA:00000003 [WRN] StatusCode: 404Original URL: (5db31178)
+2021-02-16T12:27:29.4023651+01:00 0HM6IDMT1OCIA:00000003 [INF] Executed action method "eshop.Controllers.HomeController.ErrorCodeStatus (eshop)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 35.404ms. (50a9e262)
+2021-02-16T12:27:29.4894671+01:00 0HM6IDMT1OCIA:00000003 [INF] Executing ViewResult, running view "404". (c83d0e25)
+2021-02-16T12:27:29.5172352+01:00 0HM6IDMT1OCIA:00000003 [INF] Executed ViewResult - view "404" executed in 113.8277ms. (f66409e9)
+2021-02-16T12:27:29.5190062+01:00 0HM6IDMT1OCIA:00000003 [INF] Executed action "eshop.Controllers.HomeController.ErrorCodeStatus (eshop)" in 155.4245ms (afa2e885)
+2021-02-16T12:27:29.5200382+01:00 0HM6IDMT1OCIA:00000003 [INF] Request finished in 184.7604ms 404 text/html; charset=utf-8 (791a596a)
+2021-02-16T12:27:40.9490644+01:00 0HM6IDMT1OCI9:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44369/Admin/Carousel/Select   (ca22a1cb)
+2021-02-16T12:27:40.9834675+01:00 0HM6IDMT1OCI9:00000004 [INF] Route matched with "{area = \"Admin\", action = \"Select\", controller = \"Carousel\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Select()" on controller "eshop.Areas.Admin.Controllers.CarouselController" ("eshop"). (122b2fdf)
+2021-02-16T12:27:41.1187903+01:00 0HM6IDMT1OCI9:00000004 [INF] Authorization was successful. (0d575a54)
+2021-02-16T12:27:41.1249835+01:00 0HM6IDMT1OCI9:00000004 [INF] Executing action method "eshop.Areas.Admin.Controllers.CarouselController.Select (eshop)" - Validation state: Valid (dad538d7)
+2021-02-16T12:27:41.1517576+01:00 0HM6IDMT1OCI9:00000004 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"EshopDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-02-16T12:27:41.2177923+01:00 0HM6IDMT1OCI9:00000004 [INF] Executed DbCommand ("65"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[ID], [c].[CarouselContent], [c].[DataTarget], [c].[DateTimeCreated], [c].[ImageAlt], [c].[ImageSrc]
+FROM [Carousel] AS [c]" (0723d8ff)
+2021-02-16T12:27:41.2308900+01:00 0HM6IDMT1OCI9:00000004 [INF] Executed action method "eshop.Areas.Admin.Controllers.CarouselController.Select (eshop)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 93.8571ms. (50a9e262)
+2021-02-16T12:27:41.3116651+01:00 0HM6IDMT1OCI9:00000004 [INF] Executing ViewResult, running view "Select". (c83d0e25)
+2021-02-16T12:27:41.5646752+01:00 0HM6IDMT1OCI9:00000004 [INF] Executed ViewResult - view "Select" executed in 332.9969ms. (f66409e9)
+2021-02-16T12:27:41.5652874+01:00 0HM6IDMT1OCI9:00000004 [INF] Executed action "eshop.Areas.Admin.Controllers.CarouselController.Select (eshop)" in 581.3203ms (afa2e885)
+2021-02-16T12:27:41.5663730+01:00 0HM6IDMT1OCI9:00000004 [INF] Request finished in 618.8962ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-16T12:27:47.1016415+01:00 0HM6IDMT1OCIA:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44369/Admin/Carousel/Delete/4   (ca22a1cb)
+2021-02-16T12:27:47.1285333+01:00 0HM6IDMT1OCIA:00000004 [INF] Route matched with "{area = \"Admin\", action = \"Delete\", controller = \"Carousel\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Delete(Int32)" on controller "eshop.Areas.Admin.Controllers.CarouselController" ("eshop"). (122b2fdf)
+2021-02-16T12:27:47.1318049+01:00 0HM6IDMT1OCIA:00000004 [INF] Authorization was successful. (0d575a54)
+2021-02-16T12:27:47.1337080+01:00 0HM6IDMT1OCIA:00000004 [INF] Executing action method "eshop.Areas.Admin.Controllers.CarouselController.Delete (eshop)" - Validation state: Valid (dad538d7)
+2021-02-16T12:27:47.1819690+01:00 0HM6IDMT1OCIA:00000004 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"EshopDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-02-16T12:27:47.2596074+01:00 0HM6IDMT1OCIA:00000004 [INF] Executed DbCommand ("25"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [x].[ID], [x].[CarouselContent], [x].[DataTarget], [x].[DateTimeCreated], [x].[ImageAlt], [x].[ImageSrc]
+FROM [Carousel] AS [x]
+WHERE [x].[ID] = @__id_0" (0723d8ff)
+2021-02-16T12:27:47.5952158+01:00 0HM6IDMT1OCIA:00000004 [INF] Executed DbCommand ("13"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+DELETE FROM [Carousel]
+WHERE [ID] = @p0;
+SELECT @@ROWCOUNT;" (0723d8ff)
+2021-02-16T12:27:47.7757385+01:00 0HM6IDMT1OCIA:00000004 [INF] Executed action method "eshop.Areas.Admin.Controllers.CarouselController.Delete (eshop)", returned result "Microsoft.AspNetCore.Mvc.RedirectToActionResult" in 634.1611ms. (50a9e262)
+2021-02-16T12:27:47.7769313+01:00 0HM6IDMT1OCIA:00000004 [INF] Executing RedirectResult, redirecting to "/Admin/Carousel/Select". (d98d540e)
+2021-02-16T12:27:47.7774393+01:00 0HM6IDMT1OCIA:00000004 [INF] Executed action "eshop.Areas.Admin.Controllers.CarouselController.Delete (eshop)" in 648.4363ms (afa2e885)
+2021-02-16T12:27:47.7780891+01:00 0HM6IDMT1OCIA:00000004 [INF] Request finished in 677.4465ms 302  (791a596a)
+2021-02-16T12:27:47.8310061+01:00 0HM6IDMT1OCI9:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44369/Admin/Carousel/Select   (ca22a1cb)
+2021-02-16T12:27:47.8326517+01:00 0HM6IDMT1OCI9:00000005 [INF] Route matched with "{area = \"Admin\", action = \"Select\", controller = \"Carousel\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Select()" on controller "eshop.Areas.Admin.Controllers.CarouselController" ("eshop"). (122b2fdf)
+2021-02-16T12:27:47.8332705+01:00 0HM6IDMT1OCI9:00000005 [INF] Authorization was successful. (0d575a54)
+2021-02-16T12:27:47.8338153+01:00 0HM6IDMT1OCI9:00000005 [INF] Executing action method "eshop.Areas.Admin.Controllers.CarouselController.Select (eshop)" - Validation state: Valid (dad538d7)
+2021-02-16T12:27:47.8402390+01:00 0HM6IDMT1OCI9:00000005 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"EshopDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-02-16T12:27:47.8490160+01:00 0HM6IDMT1OCI9:00000005 [INF] Executed DbCommand ("8"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[ID], [c].[CarouselContent], [c].[DataTarget], [c].[DateTimeCreated], [c].[ImageAlt], [c].[ImageSrc]
+FROM [Carousel] AS [c]" (0723d8ff)
+2021-02-16T12:27:47.8501384+01:00 0HM6IDMT1OCI9:00000005 [INF] Executed action method "eshop.Areas.Admin.Controllers.CarouselController.Select (eshop)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 15.804ms. (50a9e262)
+2021-02-16T12:27:47.8513814+01:00 0HM6IDMT1OCI9:00000005 [INF] Executing ViewResult, running view "Select". (c83d0e25)
+2021-02-16T12:27:47.8775936+01:00 0HM6IDMT1OCI9:00000005 [INF] Executed ViewResult - view "Select" executed in 26.3713ms. (f66409e9)
+2021-02-16T12:27:47.8787641+01:00 0HM6IDMT1OCI9:00000005 [INF] Executed action "eshop.Areas.Admin.Controllers.CarouselController.Select (eshop)" in 45.055ms (afa2e885)
+2021-02-16T12:27:47.8796207+01:00 0HM6IDMT1OCI9:00000005 [INF] Request finished in 48.6896ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-16T12:27:50.0784478+01:00 0HM6IDMT1OCIA:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44369/Admin/Carousel/Create   (ca22a1cb)
+2021-02-16T12:27:50.0910118+01:00 0HM6IDMT1OCIA:00000005 [INF] Route matched with "{area = \"Admin\", action = \"Create\", controller = \"Carousel\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Create()" on controller "eshop.Areas.Admin.Controllers.CarouselController" ("eshop"). (122b2fdf)
+2021-02-16T12:27:50.0919605+01:00 0HM6IDMT1OCIA:00000005 [INF] Authorization was successful. (0d575a54)
+2021-02-16T12:27:50.0925322+01:00 0HM6IDMT1OCIA:00000005 [INF] Executing action method "eshop.Areas.Admin.Controllers.CarouselController.Create (eshop)" - Validation state: Valid (dad538d7)
+2021-02-16T12:27:50.0950368+01:00 0HM6IDMT1OCIA:00000005 [INF] Executed action method "eshop.Areas.Admin.Controllers.CarouselController.Create (eshop)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 1.75ms. (50a9e262)
+2021-02-16T12:27:50.1154609+01:00 0HM6IDMT1OCIA:00000005 [INF] Executing ViewResult, running view "Create". (c83d0e25)
+2021-02-16T12:27:51.4623279+01:00 0HM6IDMT1OCIA:00000005 [INF] Executed ViewResult - view "Create" executed in 1366.3793ms. (f66409e9)
+2021-02-16T12:27:51.4628860+01:00 0HM6IDMT1OCIA:00000005 [INF] Executed action "eshop.Areas.Admin.Controllers.CarouselController.Create (eshop)" in 1371.1768ms (afa2e885)
+2021-02-16T12:27:51.4644365+01:00 0HM6IDMT1OCIA:00000005 [INF] Request finished in 1385.5336ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-16T12:28:23.9736120+01:00 0HM6IDMT1OCI9:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44369/Admin/Carousel/Create   (ca22a1cb)
+2021-02-16T12:28:23.9829096+01:00 0HM6IDMT1OCI9:00000006 [INF] Route matched with "{area = \"Admin\", action = \"Create\", controller = \"Carousel\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Create()" on controller "eshop.Areas.Admin.Controllers.CarouselController" ("eshop"). (122b2fdf)
+2021-02-16T12:28:23.9840479+01:00 0HM6IDMT1OCI9:00000006 [INF] Authorization was successful. (0d575a54)
+2021-02-16T12:28:24.1080169+01:00 0HM6IDMT1OCI9:00000006 [INF] Executing action method "eshop.Areas.Admin.Controllers.CarouselController.Create (eshop)" - Validation state: Valid (dad538d7)
+2021-02-16T12:28:24.1241975+01:00 0HM6IDMT1OCI9:00000006 [INF] Executed action method "eshop.Areas.Admin.Controllers.CarouselController.Create (eshop)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 13.3451ms. (50a9e262)
+2021-02-16T12:28:24.1247800+01:00 0HM6IDMT1OCI9:00000006 [INF] Executing ViewResult, running view "Create". (c83d0e25)
+2021-02-16T12:28:24.5581236+01:00 0HM6IDMT1OCI9:00000006 [INF] Executed ViewResult - view "Create" executed in 429.7892ms. (f66409e9)
+2021-02-16T12:28:24.5623919+01:00 0HM6IDMT1OCI9:00000006 [INF] Executed action "eshop.Areas.Admin.Controllers.CarouselController.Create (eshop)" in 575.1657ms (afa2e885)
+2021-02-16T12:28:24.5666831+01:00 0HM6IDMT1OCI9:00000006 [INF] Request finished in 591.6055ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-16T12:28:28.9513763+01:00 0HM6IDMT1OCIA:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44369/lib/bootstrap/dist/css/bootstrap.css.map   (ca22a1cb)
+2021-02-16T12:28:29.5726697+01:00 0HM6IDMT1OCIA:00000006 [INF] Sending file. Request path: '"/lib/bootstrap/dist/css/bootstrap.css.map"'. Physical path: '"C:\Projects\school\5-semestr\PWT\projekt_final_schenk\eshop\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map"' (27b0a520)
+2021-02-16T12:28:29.5734635+01:00 0HM6IDMT1OCIA:00000006 [INF] Request finished in 622.6556ms 200 text/plain (791a596a)
+2021-02-16T12:29:53.0845243+01:00 0HM6IDMT1OCIB:00000001 [INF] Request starting HTTP/1.1 POST http://localhost:44369/Admin/Carousel/Create multipart/form-data; boundary=----WebKitFormBoundaryR81kt0QGtNtM1wgZ 242843 (ca22a1cb)
+2021-02-16T12:29:53.1155065+01:00 0HM6IDMT1OCIB:00000001 [INF] Route matched with "{area = \"Admin\", action = \"Create\", controller = \"Carousel\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(eshop.Models.Carousel)" on controller "eshop.Areas.Admin.Controllers.CarouselController" ("eshop"). (122b2fdf)
+2021-02-16T12:29:53.1161877+01:00 0HM6IDMT1OCIB:00000001 [INF] Authorization was successful. (0d575a54)
+2021-02-16T12:29:53.4325761+01:00 0HM6IDMT1OCIB:00000001 [INF] Executing action method "eshop.Areas.Admin.Controllers.CarouselController.Create (eshop)" - Validation state: Valid (dad538d7)
+2021-02-16T12:29:53.5996293+01:00 0HM6IDMT1OCIB:00000001 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"EshopDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-02-16T12:29:53.7297493+01:00 0HM6IDMT1OCIB:00000001 [INF] Executed DbCommand ("19"ms) [Parameters=["@p0='?' (Size = 255), @p1='?' (Size = 4000), @p2='?' (Size = 255), @p3='?' (Size = 255)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [Carousel] ([CarouselContent], [DataTarget], [ImageAlt], [ImageSrc])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [ID], [DateTimeCreated]
+FROM [Carousel]
+WHERE @@ROWCOUNT = 1 AND [ID] = scope_identity();" (0723d8ff)
+2021-02-16T12:29:53.8659271+01:00 0HM6IDMT1OCIB:00000001 [INF] Executed action method "eshop.Areas.Admin.Controllers.CarouselController.Create (eshop)", returned result "Microsoft.AspNetCore.Mvc.RedirectToActionResult" in 432.6788ms. (50a9e262)
+2021-02-16T12:29:53.8666714+01:00 0HM6IDMT1OCIB:00000001 [INF] Executing RedirectResult, redirecting to "/Admin/Carousel/Select". (d98d540e)
+2021-02-16T12:29:53.8673104+01:00 0HM6IDMT1OCIB:00000001 [INF] Executed action "eshop.Areas.Admin.Controllers.CarouselController.Create (eshop)" in 751.2195ms (afa2e885)
+2021-02-16T12:29:53.8933467+01:00 0HM6IDMT1OCIB:00000001 [INF] Request finished in 807.1749ms 302  (791a596a)
+2021-02-16T12:29:53.9967537+01:00 0HM6IDMT1OCIB:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44369/Admin/Carousel/Select   (ca22a1cb)
+2021-02-16T12:29:53.9981589+01:00 0HM6IDMT1OCIB:00000002 [INF] Route matched with "{area = \"Admin\", action = \"Select\", controller = \"Carousel\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Select()" on controller "eshop.Areas.Admin.Controllers.CarouselController" ("eshop"). (122b2fdf)
+2021-02-16T12:29:53.9987163+01:00 0HM6IDMT1OCIB:00000002 [INF] Authorization was successful. (0d575a54)
+2021-02-16T12:29:53.9993490+01:00 0HM6IDMT1OCIB:00000002 [INF] Executing action method "eshop.Areas.Admin.Controllers.CarouselController.Select (eshop)" - Validation state: Valid (dad538d7)
+2021-02-16T12:29:54.0003009+01:00 0HM6IDMT1OCIB:00000002 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"EshopDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-02-16T12:29:54.0453232+01:00 0HM6IDMT1OCIB:00000002 [INF] Executed DbCommand ("34"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[ID], [c].[CarouselContent], [c].[DataTarget], [c].[DateTimeCreated], [c].[ImageAlt], [c].[ImageSrc]
+FROM [Carousel] AS [c]" (0723d8ff)
+2021-02-16T12:29:54.0479800+01:00 0HM6IDMT1OCIB:00000002 [INF] Executed action method "eshop.Areas.Admin.Controllers.CarouselController.Select (eshop)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 47.0192ms. (50a9e262)
+2021-02-16T12:29:54.0495068+01:00 0HM6IDMT1OCIB:00000002 [INF] Executing ViewResult, running view "Select". (c83d0e25)
+2021-02-16T12:29:54.0614583+01:00 0HM6IDMT1OCIB:00000002 [INF] Executed ViewResult - view "Select" executed in 12.4879ms. (f66409e9)
+2021-02-16T12:29:54.0621629+01:00 0HM6IDMT1OCIB:00000002 [INF] Executed action "eshop.Areas.Admin.Controllers.CarouselController.Select (eshop)" in 63.4226ms (afa2e885)
+2021-02-16T12:29:54.0628614+01:00 0HM6IDMT1OCIB:00000002 [INF] Request finished in 66.8125ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-16T12:29:59.2435324+01:00 0HM6IDMT1OCIB:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44369/Admin/Carousel/Edit/1005   (ca22a1cb)
+2021-02-16T12:29:59.2608876+01:00 0HM6IDMT1OCIB:00000003 [INF] Route matched with "{area = \"Admin\", action = \"Edit\", controller = \"Carousel\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Edit(Int32)" on controller "eshop.Areas.Admin.Controllers.CarouselController" ("eshop"). (122b2fdf)
+2021-02-16T12:29:59.2691029+01:00 0HM6IDMT1OCIB:00000003 [INF] Authorization was successful. (0d575a54)
+2021-02-16T12:29:59.2715049+01:00 0HM6IDMT1OCIB:00000003 [INF] Executing action method "eshop.Areas.Admin.Controllers.CarouselController.Edit (eshop)" - Validation state: Valid (dad538d7)
+2021-02-16T12:29:59.2784460+01:00 0HM6IDMT1OCIB:00000003 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"EshopDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-02-16T12:29:59.2945853+01:00 0HM6IDMT1OCIB:00000003 [INF] Executed DbCommand ("14"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [x].[ID], [x].[CarouselContent], [x].[DataTarget], [x].[DateTimeCreated], [x].[ImageAlt], [x].[ImageSrc]
+FROM [Carousel] AS [x]
+WHERE [x].[ID] = @__id_0" (0723d8ff)
+2021-02-16T12:29:59.2960579+01:00 0HM6IDMT1OCIB:00000003 [INF] Executed action method "eshop.Areas.Admin.Controllers.CarouselController.Edit (eshop)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 23.7614ms. (50a9e262)
+2021-02-16T12:29:59.3267723+01:00 0HM6IDMT1OCIB:00000003 [INF] Executing ViewResult, running view "Edit". (c83d0e25)
+2021-02-16T12:29:59.4623986+01:00 0HM6IDMT1OCIB:00000003 [INF] Executed ViewResult - view "Edit" executed in 165.7369ms. (f66409e9)
+2021-02-16T12:29:59.4633847+01:00 0HM6IDMT1OCIB:00000003 [INF] Executed action "eshop.Areas.Admin.Controllers.CarouselController.Edit (eshop)" in 201.5144ms (afa2e885)
+2021-02-16T12:29:59.4639616+01:00 0HM6IDMT1OCIB:00000003 [INF] Request finished in 221.4857ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-16T12:30:05.1634814+01:00 0HM6IDMT1OCIB:00000004 [INF] Request starting HTTP/1.1 POST http://localhost:44369/Admin/Carousel/Edit/1005 multipart/form-data; boundary=----WebKitFormBoundaryqXnzXiAVA5t7tjx3 1007 (ca22a1cb)
+2021-02-16T12:30:05.1979199+01:00 0HM6IDMT1OCIB:00000004 [INF] Route matched with "{area = \"Admin\", action = \"Edit\", controller = \"Carousel\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(eshop.Models.Carousel)" on controller "eshop.Areas.Admin.Controllers.CarouselController" ("eshop"). (122b2fdf)
+2021-02-16T12:30:05.1984443+01:00 0HM6IDMT1OCIB:00000004 [INF] Authorization was successful. (0d575a54)
+2021-02-16T12:30:05.2096999+01:00 0HM6IDMT1OCIB:00000004 [INF] Executing action method "eshop.Areas.Admin.Controllers.CarouselController.Edit (eshop)" - Validation state: Invalid (dad538d7)
+2021-02-16T12:30:05.2299897+01:00 0HM6IDMT1OCIB:00000004 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"EshopDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-02-16T12:30:05.2783983+01:00 0HM6IDMT1OCIB:00000004 [INF] Executed DbCommand ("15"ms) [Parameters=["@__carousel_ID_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [x].[ID], [x].[CarouselContent], [x].[DataTarget], [x].[DateTimeCreated], [x].[ImageAlt], [x].[ImageSrc]
+FROM [Carousel] AS [x]
+WHERE [x].[ID] = @__carousel_ID_0" (0723d8ff)
+2021-02-16T12:30:05.2877564+01:00 0HM6IDMT1OCIB:00000004 [INF] Executed action method "eshop.Areas.Admin.Controllers.CarouselController.Edit (eshop)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 69.253ms. (50a9e262)
+2021-02-16T12:30:05.2901130+01:00 0HM6IDMT1OCIB:00000004 [INF] Executing ViewResult, running view "Edit". (c83d0e25)
+2021-02-16T12:30:05.3237441+01:00 0HM6IDMT1OCIB:00000004 [INF] Executed ViewResult - view "Edit" executed in 34.9979ms. (f66409e9)
+2021-02-16T12:30:05.3242119+01:00 0HM6IDMT1OCIB:00000004 [INF] Executed action "eshop.Areas.Admin.Controllers.CarouselController.Edit (eshop)" in 125.8445ms (afa2e885)
+2021-02-16T12:30:05.3247577+01:00 0HM6IDMT1OCIB:00000004 [INF] Request finished in 161.8456ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-16T12:30:19.4200948+01:00 0HM6IDMT1OCIB:00000005 [INF] Request starting HTTP/1.1 POST http://localhost:44369/Admin/Carousel/Edit/1005 multipart/form-data; boundary=----WebKitFormBoundaryDsaUqmEGtzDbJDgf 242930 (ca22a1cb)
+2021-02-16T12:30:19.4225631+01:00 0HM6IDMT1OCIB:00000005 [INF] Route matched with "{area = \"Admin\", action = \"Edit\", controller = \"Carousel\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(eshop.Models.Carousel)" on controller "eshop.Areas.Admin.Controllers.CarouselController" ("eshop"). (122b2fdf)
+2021-02-16T12:30:19.4232813+01:00 0HM6IDMT1OCIB:00000005 [INF] Authorization was successful. (0d575a54)
+2021-02-16T12:30:19.6216732+01:00 0HM6IDMT1OCIB:00000005 [INF] Executing action method "eshop.Areas.Admin.Controllers.CarouselController.Edit (eshop)" - Validation state: Valid (dad538d7)
+2021-02-16T12:30:19.6226899+01:00 0HM6IDMT1OCIB:00000005 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"EshopDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-02-16T12:30:19.6309209+01:00 0HM6IDMT1OCIB:00000005 [INF] Executed DbCommand ("3"ms) [Parameters=["@__carousel_ID_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [x].[ID], [x].[CarouselContent], [x].[DataTarget], [x].[DateTimeCreated], [x].[ImageAlt], [x].[ImageSrc]
+FROM [Carousel] AS [x]
+WHERE [x].[ID] = @__carousel_ID_0" (0723d8ff)
+2021-02-16T12:30:19.7110171+01:00 0HM6IDMT1OCIB:00000005 [INF] Executed DbCommand ("22"ms) [Parameters=["@p1='?' (DbType = Int32), @p0='?' (Size = 255)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+UPDATE [Carousel] SET [CarouselContent] = @p0
+WHERE [ID] = @p1;
+SELECT [DateTimeCreated]
+FROM [Carousel]
+WHERE @@ROWCOUNT = 1 AND [ID] = @p1;" (0723d8ff)
+2021-02-16T12:30:19.7407739+01:00 0HM6IDMT1OCIB:00000005 [INF] Executed action method "eshop.Areas.Admin.Controllers.CarouselController.Edit (eshop)", returned result "Microsoft.AspNetCore.Mvc.RedirectToActionResult" in 118.3674ms. (50a9e262)
+2021-02-16T12:30:19.7416101+01:00 0HM6IDMT1OCIB:00000005 [INF] Executing RedirectResult, redirecting to "/Admin/Carousel/Select". (d98d540e)
+2021-02-16T12:30:19.7424308+01:00 0HM6IDMT1OCIB:00000005 [INF] Executed action "eshop.Areas.Admin.Controllers.CarouselController.Edit (eshop)" in 319.2971ms (afa2e885)
+2021-02-16T12:30:19.7436900+01:00 0HM6IDMT1OCIB:00000005 [INF] Request finished in 365.3097ms 302  (791a596a)
+2021-02-16T12:30:19.9417850+01:00 0HM6IDMT1OCIB:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44369/Admin/Carousel/Select   (ca22a1cb)
+2021-02-16T12:30:19.9464163+01:00 0HM6IDMT1OCIB:00000006 [INF] Route matched with "{area = \"Admin\", action = \"Select\", controller = \"Carousel\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Select()" on controller "eshop.Areas.Admin.Controllers.CarouselController" ("eshop"). (122b2fdf)
+2021-02-16T12:30:19.9470575+01:00 0HM6IDMT1OCIB:00000006 [INF] Authorization was successful. (0d575a54)
+2021-02-16T12:30:19.9535104+01:00 0HM6IDMT1OCIB:00000006 [INF] Executing action method "eshop.Areas.Admin.Controllers.CarouselController.Select (eshop)" - Validation state: Valid (dad538d7)
+2021-02-16T12:30:19.9544337+01:00 0HM6IDMT1OCIB:00000006 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"EshopDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-02-16T12:30:20.1212597+01:00 0HM6IDMT1OCIB:00000006 [INF] Executed DbCommand ("165"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[ID], [c].[CarouselContent], [c].[DataTarget], [c].[DateTimeCreated], [c].[ImageAlt], [c].[ImageSrc]
+FROM [Carousel] AS [c]" (0723d8ff)
+2021-02-16T12:30:20.1224258+01:00 0HM6IDMT1OCIB:00000006 [INF] Executed action method "eshop.Areas.Admin.Controllers.CarouselController.Select (eshop)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 168.3805ms. (50a9e262)
+2021-02-16T12:30:20.1230962+01:00 0HM6IDMT1OCIB:00000006 [INF] Executing ViewResult, running view "Select". (c83d0e25)
+2021-02-16T12:30:20.1366927+01:00 0HM6IDMT1OCIB:00000006 [INF] Executed ViewResult - view "Select" executed in 12.3373ms. (f66409e9)
+2021-02-16T12:30:20.1373480+01:00 0HM6IDMT1OCIB:00000006 [INF] Executed action "eshop.Areas.Admin.Controllers.CarouselController.Select (eshop)" in 190.3642ms (afa2e885)
+2021-02-16T12:30:20.1381570+01:00 0HM6IDMT1OCIB:00000006 [INF] Request finished in 196.5194ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-16T12:30:24.5590486+01:00 0HM6IDMT1OCIB:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:44369/Admin/Product/Select   (ca22a1cb)
+2021-02-16T12:30:24.5904425+01:00 0HM6IDMT1OCIB:00000007 [INF] Route matched with "{area = \"Admin\", action = \"Select\", controller = \"Product\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Select()" on controller "eshop.Areas.Admin.Controllers.ProductController" ("eshop"). (122b2fdf)
+2021-02-16T12:30:24.5912615+01:00 0HM6IDMT1OCIB:00000007 [INF] Authorization was successful. (0d575a54)
+2021-02-16T12:30:24.5924660+01:00 0HM6IDMT1OCIB:00000007 [INF] Executing action method "eshop.Areas.Admin.Controllers.ProductController.Select (eshop)" - Validation state: Valid (dad538d7)
+2021-02-16T12:30:24.6039183+01:00 0HM6IDMT1OCIB:00000007 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"EshopDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-02-16T12:30:24.6083557+01:00 0HM6IDMT1OCIB:00000007 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[ID], [p].[Color], [p].[DateTimeCreated], [p].[ImageSrc], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Products] AS [p]" (0723d8ff)
+2021-02-16T12:30:24.6108127+01:00 0HM6IDMT1OCIB:00000007 [INF] Executed action method "eshop.Areas.Admin.Controllers.ProductController.Select (eshop)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 17.323ms. (50a9e262)
+2021-02-16T12:30:24.6363754+01:00 0HM6IDMT1OCIB:00000007 [INF] Executing ViewResult, running view "Select". (c83d0e25)
+2021-02-16T12:30:24.7415807+01:00 0HM6IDMT1OCIB:00000007 [INF] Executed ViewResult - view "Select" executed in 129.9187ms. (f66409e9)
+2021-02-16T12:30:24.7425228+01:00 0HM6IDMT1OCIB:00000007 [INF] Executed action "eshop.Areas.Admin.Controllers.ProductController.Select (eshop)" in 151.233ms (afa2e885)
+2021-02-16T12:30:24.7433419+01:00 0HM6IDMT1OCIB:00000007 [INF] Request finished in 185.125ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-16T12:30:33.7210966+01:00 0HM6IDMT1OCIB:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:44369/Admin/Order   (ca22a1cb)
+2021-02-16T12:30:33.7670741+01:00 0HM6IDMT1OCIB:00000008 [INF] Route matched with "{area = \"Admin\", action = \"Index\", controller = \"Order\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index()" on controller "eshop.Areas.Admin.Controllers.OrderController" ("eshop"). (122b2fdf)
+2021-02-16T12:30:33.7680916+01:00 0HM6IDMT1OCIB:00000008 [INF] Authorization was successful. (0d575a54)
+2021-02-16T12:30:33.7695540+01:00 0HM6IDMT1OCIB:00000008 [INF] Executing action method "eshop.Areas.Admin.Controllers.OrderController.Index (eshop)" - Validation state: Valid (dad538d7)
+2021-02-16T12:30:33.7750368+01:00 0HM6IDMT1OCIB:00000008 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"EshopDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-02-16T12:30:34.0395748+01:00 0HM6IDMT1OCIB:00000008 [INF] Executed DbCommand ("189"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [o].[ID], [o].[DateTimeCreated], [o].[OrderNumber]
+FROM [Order] AS [o]" (0723d8ff)
+2021-02-16T12:30:34.0558464+01:00 0HM6IDMT1OCIB:00000008 [INF] Executed action method "eshop.Areas.Admin.Controllers.OrderController.Index (eshop)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 285.4848ms. (50a9e262)
+2021-02-16T12:30:34.0841874+01:00 0HM6IDMT1OCIB:00000008 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-02-16T12:30:34.1557669+01:00 0HM6IDMT1OCIB:00000008 [INF] Executed ViewResult - view "Index" executed in 96.8484ms. (f66409e9)
+2021-02-16T12:30:34.1566241+01:00 0HM6IDMT1OCIB:00000008 [INF] Executed action "eshop.Areas.Admin.Controllers.OrderController.Index (eshop)" in 388.7702ms (afa2e885)
+2021-02-16T12:30:34.1592760+01:00 0HM6IDMT1OCIB:00000008 [INF] Request finished in 436.4733ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-16T12:30:45.7685072+01:00 0HM6IDMT1OCIB:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:44369/   (ca22a1cb)
+2021-02-16T12:30:45.7730400+01:00 0HM6IDMT1OCIB:00000009 [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index()" on controller "eshop.Controllers.HomeController" ("eshop"). (122b2fdf)
+2021-02-16T12:30:45.7764952+01:00 0HM6IDMT1OCIB:00000009 [INF] Executing action method "eshop.Controllers.HomeController.Index (eshop)" - Validation state: Valid (dad538d7)
+2021-02-16T12:30:45.7789777+01:00 0HM6IDMT1OCIB:00000009 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"EshopDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-02-16T12:30:45.8330357+01:00 0HM6IDMT1OCIB:00000009 [INF] Executed DbCommand ("53"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[ID], [c].[CarouselContent], [c].[DataTarget], [c].[DateTimeCreated], [c].[ImageAlt], [c].[ImageSrc]
+FROM [Carousel] AS [c]" (0723d8ff)
+2021-02-16T12:30:45.8613782+01:00 0HM6IDMT1OCIB:00000009 [INF] Executed DbCommand ("26"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[ID], [p].[Color], [p].[DateTimeCreated], [p].[ImageSrc], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Products] AS [p]" (0723d8ff)
+2021-02-16T12:30:45.8636648+01:00 0HM6IDMT1OCIB:00000009 [INF] Executed action method "eshop.Controllers.HomeController.Index (eshop)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 85.9342ms. (50a9e262)
+2021-02-16T12:30:45.8655909+01:00 0HM6IDMT1OCIB:00000009 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-02-16T12:30:45.8681650+01:00 0HM6IDMT1OCIB:00000009 [INF] Executed ViewResult - view "Index" executed in 3.6548ms. (f66409e9)
+2021-02-16T12:30:45.8686359+01:00 0HM6IDMT1OCIB:00000009 [INF] Executed action "eshop.Controllers.HomeController.Index (eshop)" in 95.0083ms (afa2e885)
+2021-02-16T12:30:45.8697324+01:00 0HM6IDMT1OCIB:00000009 [INF] Request finished in 101.5052ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-16T12:30:46.4827525+01:00 0HM6IDMT1OCIB:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:44369/images/Carousels/Filipovo arduino.png   (ca22a1cb)
+2021-02-16T12:30:47.1515201+01:00 0HM6IDMT1OCIB:0000000A [INF] Sending file. Request path: '"/images/Carousels/Filipovo arduino.png"'. Physical path: '"C:\Projects\school\5-semestr\PWT\projekt_final_schenk\eshop\wwwroot\images\Carousels\Filipovo arduino.png"' (27b0a520)
+2021-02-16T12:30:47.1522426+01:00 0HM6IDMT1OCIB:0000000A [INF] Request finished in 672.0377ms 200 image/png (791a596a)
+2021-02-16T12:31:24.4249014+01:00 0HM6IDMT1OCIB:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:44369/Security/Account/Logout   (ca22a1cb)
+2021-02-16T12:31:24.4369768+01:00 0HM6IDMT1OCIB:0000000B [INF] Route matched with "{area = \"Security\", action = \"Logout\", controller = \"Account\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Logout()" on controller "eshop.Areas.Security.Controllers.AccountController" ("eshop"). (122b2fdf)
+2021-02-16T12:31:24.4930925+01:00 0HM6IDMT1OCIB:0000000B [INF] Executing action method "eshop.Areas.Security.Controllers.AccountController.Logout (eshop)" - Validation state: Valid (dad538d7)
+2021-02-16T12:31:24.5587794+01:00 0HM6IDMT1OCIB:0000000B [INF] AuthenticationScheme: "Identity.Application" signed out. (d3f50c8d)
+2021-02-16T12:31:24.5706192+01:00 0HM6IDMT1OCIB:0000000B [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2021-02-16T12:31:24.5719595+01:00 0HM6IDMT1OCIB:0000000B [INF] AuthenticationScheme: "Identity.TwoFactorUserId" signed out. (d3f50c8d)
+2021-02-16T12:31:24.5724677+01:00 0HM6IDMT1OCIB:0000000B [INF] Executed action method "eshop.Areas.Security.Controllers.AccountController.Logout (eshop)", returned result "Microsoft.AspNetCore.Mvc.RedirectToActionResult" in 78.037ms. (50a9e262)
+2021-02-16T12:31:24.5728887+01:00 0HM6IDMT1OCIB:0000000B [INF] Executing RedirectResult, redirecting to "/Security/Account/Login". (d98d540e)
+2021-02-16T12:31:24.5732944+01:00 0HM6IDMT1OCIB:0000000B [INF] Executed action "eshop.Areas.Security.Controllers.AccountController.Logout (eshop)" in 135.8478ms (afa2e885)
+2021-02-16T12:31:24.5738272+01:00 0HM6IDMT1OCIB:0000000B [INF] Request finished in 149.7924ms 302  (791a596a)
+2021-02-16T12:31:24.6202539+01:00 0HM6IDMT1OCIB:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:44369/Security/Account/Login   (ca22a1cb)
+2021-02-16T12:31:24.6212340+01:00 0HM6IDMT1OCIB:0000000C [INF] Route matched with "{area = \"Security\", action = \"Login\", controller = \"Account\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Login()" on controller "eshop.Areas.Security.Controllers.AccountController" ("eshop"). (122b2fdf)
+2021-02-16T12:31:24.6222088+01:00 0HM6IDMT1OCIB:0000000C [INF] Executing action method "eshop.Areas.Security.Controllers.AccountController.Login (eshop)" - Validation state: Valid (dad538d7)
+2021-02-16T12:31:24.6226167+01:00 0HM6IDMT1OCIB:0000000C [INF] Executed action method "eshop.Areas.Security.Controllers.AccountController.Login (eshop)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.029ms. (50a9e262)
+2021-02-16T12:31:24.6231179+01:00 0HM6IDMT1OCIB:0000000C [INF] Executing ViewResult, running view "Login". (c83d0e25)
+2021-02-16T12:31:24.6573020+01:00 0HM6IDMT1OCIB:0000000C [INF] Executed ViewResult - view "Login" executed in 33.131ms. (f66409e9)
+2021-02-16T12:31:24.6582956+01:00 0HM6IDMT1OCIB:0000000C [INF] Executed action "eshop.Areas.Security.Controllers.AccountController.Login (eshop)" in 36.1365ms (afa2e885)
+2021-02-16T12:31:24.6602959+01:00 0HM6IDMT1OCIB:0000000C [INF] Request finished in 40.2188ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-16T12:31:26.7602027+01:00 0HM6IDMT1OCIB:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:44369/Security/Account/Register   (ca22a1cb)
+2021-02-16T12:31:26.7868799+01:00 0HM6IDMT1OCIB:0000000D [INF] Route matched with "{area = \"Security\", action = \"Register\", controller = \"Account\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Register()" on controller "eshop.Areas.Security.Controllers.AccountController" ("eshop"). (122b2fdf)
+2021-02-16T12:31:26.7879243+01:00 0HM6IDMT1OCIB:0000000D [INF] Executing action method "eshop.Areas.Security.Controllers.AccountController.Register (eshop)" - Validation state: Valid (dad538d7)
+2021-02-16T12:31:26.7898567+01:00 0HM6IDMT1OCIB:0000000D [INF] Executed action method "eshop.Areas.Security.Controllers.AccountController.Register (eshop)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.5829ms. (50a9e262)
+2021-02-16T12:31:26.8098624+01:00 0HM6IDMT1OCIB:0000000D [INF] Executing ViewResult, running view "Register". (c83d0e25)
+2021-02-16T12:31:26.9555761+01:00 0HM6IDMT1OCIB:0000000D [INF] Executed ViewResult - view "Register" executed in 165.0168ms. (f66409e9)
+2021-02-16T12:31:26.9563986+01:00 0HM6IDMT1OCIB:0000000D [INF] Executed action "eshop.Areas.Security.Controllers.AccountController.Register (eshop)" in 168.6946ms (afa2e885)
+2021-02-16T12:31:26.9588023+01:00 0HM6IDMT1OCIB:0000000D [INF] Request finished in 197.285ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-16T12:31:53.3797199+01:00 0HM6IDMT1OCIB:0000000E [INF] Request starting HTTP/1.1 POST http://localhost:44369/Security/Account/Login application/x-www-form-urlencoded 313 (ca22a1cb)
+2021-02-16T12:31:53.3810463+01:00 0HM6IDMT1OCIB:0000000E [INF] Route matched with "{area = \"Security\", action = \"Login\", controller = \"Account\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(eshop.Models.LoginViewModel)" on controller "eshop.Areas.Security.Controllers.AccountController" ("eshop"). (122b2fdf)
+2021-02-16T12:31:53.3922632+01:00 0HM6IDMT1OCIB:0000000E [INF] Executing action method "eshop.Areas.Security.Controllers.AccountController.Login (eshop)" - Validation state: Valid (dad538d7)
+2021-02-16T12:31:53.3967398+01:00 0HM6IDMT1OCIB:0000000E [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"EshopDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-02-16T12:31:53.5134902+01:00 0HM6IDMT1OCIB:0000000E [INF] Executed DbCommand ("114"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2021-02-16T12:31:53.5154391+01:00 0HM6IDMT1OCIB:0000000E [INF] Executed action method "eshop.Areas.Security.Controllers.AccountController.Login (eshop)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 121.7339ms. (50a9e262)
+2021-02-16T12:31:53.5159903+01:00 0HM6IDMT1OCIB:0000000E [INF] Executing ViewResult, running view "Login". (c83d0e25)
+2021-02-16T12:31:53.5213657+01:00 0HM6IDMT1OCIB:0000000E [INF] Executed ViewResult - view "Login" executed in 4.2175ms. (f66409e9)
+2021-02-16T12:31:53.5264708+01:00 0HM6IDMT1OCIB:0000000E [INF] Executed action "eshop.Areas.Security.Controllers.AccountController.Login (eshop)" in 140.9124ms (afa2e885)
+2021-02-16T12:31:53.5277609+01:00 0HM6IDMT1OCIB:0000000E [INF] Request finished in 149.7855ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-16T12:31:58.8835478+01:00 0HM6IDMT1OCIB:0000000F [INF] Request starting HTTP/1.1 POST http://localhost:44369/Security/Account/Login application/x-www-form-urlencoded 233 (ca22a1cb)
+2021-02-16T12:31:58.8901410+01:00 0HM6IDMT1OCIB:0000000F [INF] Route matched with "{area = \"Security\", action = \"Login\", controller = \"Account\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(eshop.Models.LoginViewModel)" on controller "eshop.Areas.Security.Controllers.AccountController" ("eshop"). (122b2fdf)
+2021-02-16T12:31:58.8957414+01:00 0HM6IDMT1OCIB:0000000F [INF] Executing action method "eshop.Areas.Security.Controllers.AccountController.Login (eshop)" - Validation state: Valid (dad538d7)
+2021-02-16T12:31:58.8975413+01:00 0HM6IDMT1OCIB:0000000F [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"EshopDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-02-16T12:31:58.9263660+01:00 0HM6IDMT1OCIB:0000000F [INF] Executed DbCommand ("22"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2021-02-16T12:31:58.9274895+01:00 0HM6IDMT1OCIB:0000000F [INF] Executed action method "eshop.Areas.Security.Controllers.AccountController.Login (eshop)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 30.9911ms. (50a9e262)
+2021-02-16T12:31:58.9282297+01:00 0HM6IDMT1OCIB:0000000F [INF] Executing ViewResult, running view "Login". (c83d0e25)
+2021-02-16T12:31:58.9346017+01:00 0HM6IDMT1OCIB:0000000F [INF] Executed ViewResult - view "Login" executed in 6.436ms. (f66409e9)
+2021-02-16T12:31:58.9359174+01:00 0HM6IDMT1OCIB:0000000F [INF] Executed action "eshop.Areas.Security.Controllers.AccountController.Login (eshop)" in 44.4986ms (afa2e885)
+2021-02-16T12:31:58.9382682+01:00 0HM6IDMT1OCIB:0000000F [INF] Request finished in 54.5956ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-16T12:32:05.7824587+01:00 0HM6IDMT1OCIB:00000010 [INF] Request starting HTTP/1.1 POST http://localhost:44369/Security/Account/Login application/x-www-form-urlencoded 233 (ca22a1cb)
+2021-02-16T12:32:05.7882747+01:00 0HM6IDMT1OCIB:00000010 [INF] Route matched with "{area = \"Security\", action = \"Login\", controller = \"Account\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(eshop.Models.LoginViewModel)" on controller "eshop.Areas.Security.Controllers.AccountController" ("eshop"). (122b2fdf)
+2021-02-16T12:32:05.8745789+01:00 0HM6IDMT1OCIB:00000010 [INF] Executing action method "eshop.Areas.Security.Controllers.AccountController.Login (eshop)" - Validation state: Valid (dad538d7)
+2021-02-16T12:32:05.8758539+01:00 0HM6IDMT1OCIB:00000010 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"EshopDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-02-16T12:32:05.8953028+01:00 0HM6IDMT1OCIB:00000010 [INF] Executed DbCommand ("17"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2021-02-16T12:32:05.8963123+01:00 0HM6IDMT1OCIB:00000010 [INF] Executed action method "eshop.Areas.Security.Controllers.AccountController.Login (eshop)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 21.2292ms. (50a9e262)
+2021-02-16T12:32:05.8970837+01:00 0HM6IDMT1OCIB:00000010 [INF] Executing ViewResult, running view "Login". (c83d0e25)
+2021-02-16T12:32:05.9138041+01:00 0HM6IDMT1OCIB:00000010 [INF] Executed ViewResult - view "Login" executed in 16.7503ms. (f66409e9)
+2021-02-16T12:32:05.9144855+01:00 0HM6IDMT1OCIB:00000010 [INF] Executed action "eshop.Areas.Security.Controllers.AccountController.Login (eshop)" in 125.4708ms (afa2e885)
+2021-02-16T12:32:05.9153416+01:00 0HM6IDMT1OCIB:00000010 [INF] Request finished in 133.6341ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-16T12:32:37.9712961+01:00 0HM6IDMT1OCIB:00000011 [INF] Request starting HTTP/1.1 GET http://localhost:44369/Security/Account/Register   (ca22a1cb)
+2021-02-16T12:32:37.9730488+01:00 0HM6IDMT1OCIB:00000011 [INF] Route matched with "{area = \"Security\", action = \"Register\", controller = \"Account\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Register()" on controller "eshop.Areas.Security.Controllers.AccountController" ("eshop"). (122b2fdf)
+2021-02-16T12:32:37.9746865+01:00 0HM6IDMT1OCIB:00000011 [INF] Executing action method "eshop.Areas.Security.Controllers.AccountController.Register (eshop)" - Validation state: Valid (dad538d7)
+2021-02-16T12:32:37.9789905+01:00 0HM6IDMT1OCIB:00000011 [INF] Executed action method "eshop.Areas.Security.Controllers.AccountController.Register (eshop)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 1.1298ms. (50a9e262)
+2021-02-16T12:32:37.9807532+01:00 0HM6IDMT1OCIB:00000011 [INF] Executing ViewResult, running view "Register". (c83d0e25)
+2021-02-16T12:32:38.1160714+01:00 0HM6IDMT1OCIB:00000011 [INF] Executed ViewResult - view "Register" executed in 136.2542ms. (f66409e9)
+2021-02-16T12:32:38.1166369+01:00 0HM6IDMT1OCIB:00000011 [INF] Executed action "eshop.Areas.Security.Controllers.AccountController.Register (eshop)" in 143.0689ms (afa2e885)
+2021-02-16T12:32:38.1172218+01:00 0HM6IDMT1OCIB:00000011 [INF] Request finished in 145.8911ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-16T12:32:57.9279572+01:00 0HM6IDMT1OCIB:00000012 [INF] Request starting HTTP/1.1 POST http://localhost:44369/Security/Account/Login application/x-www-form-urlencoded 336 (ca22a1cb)
+2021-02-16T12:32:57.9288785+01:00 0HM6IDMT1OCIB:00000012 [INF] Route matched with "{area = \"Security\", action = \"Login\", controller = \"Account\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(eshop.Models.LoginViewModel)" on controller "eshop.Areas.Security.Controllers.AccountController" ("eshop"). (122b2fdf)
+2021-02-16T12:32:57.9311856+01:00 0HM6IDMT1OCIB:00000012 [INF] Executing action method "eshop.Areas.Security.Controllers.AccountController.Login (eshop)" - Validation state: Valid (dad538d7)
+2021-02-16T12:32:57.9326211+01:00 0HM6IDMT1OCIB:00000012 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"EshopDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-02-16T12:32:57.9521000+01:00 0HM6IDMT1OCIB:00000012 [INF] Executed DbCommand ("17"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2021-02-16T12:32:57.9583111+01:00 0HM6IDMT1OCIB:00000012 [INF] Executed action method "eshop.Areas.Security.Controllers.AccountController.Login (eshop)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 21.5334ms. (50a9e262)
+2021-02-16T12:32:57.9598100+01:00 0HM6IDMT1OCIB:00000012 [INF] Executing ViewResult, running view "Login". (c83d0e25)
+2021-02-16T12:32:57.9804792+01:00 0HM6IDMT1OCIB:00000012 [INF] Executed ViewResult - view "Login" executed in 21.2207ms. (f66409e9)
+2021-02-16T12:32:57.9808977+01:00 0HM6IDMT1OCIB:00000012 [INF] Executed action "eshop.Areas.Security.Controllers.AccountController.Login (eshop)" in 51.663ms (afa2e885)
+2021-02-16T12:32:57.9817054+01:00 0HM6IDMT1OCIB:00000012 [INF] Request finished in 63.9948ms 200 text/html; charset=utf-8 (791a596a)
